@@ -3,7 +3,9 @@ project(Tetris)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Tetris main.cpp)
+add_executable(Tetris main.cpp
+        Application.cpp
+        Application.h)
 
 set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR C:/SFML-2.6.0/lib/cmake/SFML)
