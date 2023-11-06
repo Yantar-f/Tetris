@@ -3,7 +3,6 @@
 //
 
 #include "Application.h"
-#include <thread>
 #include <chrono>
 
 using namespace std::chrono_literals;

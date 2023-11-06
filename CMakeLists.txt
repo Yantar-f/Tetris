@@ -8,8 +8,8 @@ add_executable(Tetris main.cpp
         Application.h)
 
 set(SFML_STATIC_LIBRARIES TRUE)
-set(SFML_DIR C:/SFML-2.6.0/lib/cmake/SFML)
+set(SFML_DIR C:/SFML-2.6/lib/cmake/SFML)
 find_package(SFML COMPONENTS system window graphics audio network REQUIRED)
 
-include_directories(C:/SFML-2.6.0/include)
+include_directories(C:/SFML-2.6/include)
 target_link_libraries(Tetris sfml-system sfml-window sfml-graphics sfml-audio sfml-network)
