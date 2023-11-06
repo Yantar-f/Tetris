@@ -6,6 +6,9 @@
 
 #pragma once
 #include <SFML\Graphics.hpp>
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 class Application {
 public:
@@ -14,11 +17,13 @@ public:
 
 private:
     void processEvents();
-    void update();
+    void update(std::chrono::time_point<std::chrono::steady_clock, std::chrono::milliseconds> timePoint);
     void render();
     void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
 
     sf::RenderWindow mainWindow;
+    std::chrono::time_point<std::chrono::steady_clock, std::chrono::milliseconds> previousTickTimePointMs;
+    std::chrono::milliseconds tickDurationMs;
 };
 
 

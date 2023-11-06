@@ -12,20 +12,22 @@ bool isMovingDown = false;
 bool isMovingLeft = false;
 bool isMovingRight = false;
 
-std::chrono::duration pressDelay = {5ms};
-std::chrono::duration curDelayState = std::chrono::system_clock::now().time_since_epoch();
-
 sf::CircleShape shape(40.f);
 
-
-
 Application::Application() :
-    mainWindow(sf::VideoMode(800,600), "Tetris", sf::Style::Close) {}
+    mainWindow(sf::VideoMode(800,600), "Tetris", sf::Style::Close),
+    previousTickTimePointMs(std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now())),
+    tickDurationMs(5ms) {}
 
 void Application::run() {
+
     while (mainWindow.isOpen()) {
         processEvents();
-        update();
+
+        std::chrono::time_point<std::chrono::steady_clock, std::chrono::milliseconds> timePoint =
+                std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
+
+        update(timePoint);
         render();
     }
 }
@@ -56,8 +58,8 @@ void Application::processEvents() {
     }
 }
 
-void Application::update() {
-    if (std::chrono::system_clock::now().time_since_epoch() > curDelayState) {
+void Application::update(std::chrono::time_point<std::chrono::steady_clock, std::chrono::milliseconds> timePoint) {
+    if (timePoint - previousTickTimePointMs > tickDurationMs) {
         sf::Vector2f movement {0.f, 0.f};
 
         if (isMovingUp) movement.y -= 1.f;
@@ -66,7 +68,7 @@ void Application::update() {
         if (isMovingRight) movement.x += 1.f;
 
         shape.move(movement);
-        curDelayState = std::chrono::system_clock::now().time_since_epoch() + pressDelay;
+        previousTickTimePointMs = timePoint;
     }
 }
 
