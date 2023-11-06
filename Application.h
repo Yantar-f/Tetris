@@ -8,7 +8,7 @@
 #include <SFML\Graphics.hpp>
 #include <chrono>
 
-using namespace std::chrono_literals;
+typedef std::chrono::time_point<std::chrono::steady_clock, std::chrono::milliseconds> TimePointMs;
 
 class Application {
 public:
@@ -17,12 +17,13 @@ public:
 
 private:
     void processEvents();
-    void update(std::chrono::time_point<std::chrono::steady_clock, std::chrono::milliseconds> timePoint);
+    void update(TimePointMs timePoint);
     void render();
     void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
+    TimePointMs stampTimePoint();
 
     sf::RenderWindow mainWindow;
-    std::chrono::time_point<std::chrono::steady_clock, std::chrono::milliseconds> previousTickTimePointMs;
+    TimePointMs previousTickTimePointMs;
     std::chrono::milliseconds tickDurationMs;
 };
 

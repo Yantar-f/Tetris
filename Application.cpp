@@ -16,18 +16,13 @@ sf::CircleShape shape(40.f);
 
 Application::Application() :
     mainWindow(sf::VideoMode(800,600), "Tetris", sf::Style::Close),
-    previousTickTimePointMs(std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now())),
+    previousTickTimePointMs(stampTimePoint()),
     tickDurationMs(5ms) {}
 
 void Application::run() {
-
     while (mainWindow.isOpen()) {
         processEvents();
-
-        std::chrono::time_point<std::chrono::steady_clock, std::chrono::milliseconds> timePoint =
-                std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
-
-        update(timePoint);
+        update(stampTimePoint());
         render();
     }
 }
@@ -54,11 +49,10 @@ void Application::processEvents() {
 
             default: break;
         }
-
     }
 }
 
-void Application::update(std::chrono::time_point<std::chrono::steady_clock, std::chrono::milliseconds> timePoint) {
+void Application::update(TimePointMs timePoint) {
     if (timePoint - previousTickTimePointMs > tickDurationMs) {
         sf::Vector2f movement {0.f, 0.f};
 
@@ -86,4 +80,8 @@ void Application::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
     else if (key == sf::Keyboard::S) isMovingDown = isPressed;
     else if (key == sf::Keyboard::A) isMovingLeft = isPressed;
     else if (key == sf::Keyboard::D) isMovingRight = isPressed;
+}
+
+TimePointMs Application::stampTimePoint() {
+    return std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
 }
