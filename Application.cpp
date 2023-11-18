@@ -1,5 +1,6 @@
 #include "Application.h"
 #include <chrono>
+#include "Logger.h"
 
 using namespace std::chrono_literals;
 
@@ -12,7 +13,10 @@ void Application::run() {
         update();
         render();
 
-        if (stateStack.isEmpty()) mainWindow.close();
+        if (stateStack.isEmpty()) {
+            LOG_INFO("StateStack is empty");
+            mainWindow.close();
+        }
     }
 }
 
@@ -21,6 +25,7 @@ void Application::processEvents() {
 
     while (mainWindow.pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
+            LOG_INFO("Window close request");
             mainWindow.close();
             return;
         }

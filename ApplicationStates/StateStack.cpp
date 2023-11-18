@@ -1,6 +1,7 @@
 #include <cassert>
 #include "StateStack.h"
 #include <unordered_map>
+#include "../Logger.h"
 
 void StateStack::handleEvent(sf::Event) {
 
@@ -27,7 +28,8 @@ std::unique_ptr<State> StateStack::createState(StatesEnum stateID) {
 
 template<class StateType>
 void StateStack::registerState(StatesEnum stateID) {
-    stateFactory[stateID] = [this] () {
+    stateFactory[stateID] = [this, stateID] () {
+        LOG_INFO(std::string("Creating state: id = ").append(std::to_string(stateID)));
         return std::unique_ptr<State> (new StateType(*this));
     };
 }
