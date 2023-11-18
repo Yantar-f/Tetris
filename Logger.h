@@ -5,25 +5,28 @@
 #ifndef TETRIS_LOGGER_H
 #define TETRIS_LOGGER_H
 
-
 #include <string>
 
 class Logger {
-private:
-    std::string actor_name;
-    std::string info_prefix;
-    std::string warn_prefix;
-    std::string error_prefix;
-    std::string fatal_prefix;
 public:
-    explicit Logger(const char* actor_name);
-    void log_info(const char* message);
-    void log_warn(const char* message);
-    void log_error(const char* message);
-    void log_fatal(const char* message);
+    enum Level {
+        INFO,
+        WARN,
+        ERROR,
+        FATAL
+    };
+
+public:
+    static void log(Level, const char* file, int line, const std::string& message);
+
+
 private:
-    void print(std::string& log_prefix, const char* message);
+    inline static const std::string logLevelMap[] = {"INFO", "WARN", "ERROR", "FATAL"};
 };
 
+#define LOG_INFO(message) Logger::log(Logger::Level::INFO, __FILE__, __LINE__, message)
+#define LOG_WARN(message) Logger::log(Logger::Level::WARN, __FILE__, __LINE__, message)
+#define LOG_ERROR(message) Logger::log(Logger::Level::ERROR, __FILE__, __LINE__, message)
+#define LOG_FATAL(message) Logger::log(Logger::Level::FATAL, __FILE__, __LINE__, message)
 
 #endif //TETRIS_LOGGER_H

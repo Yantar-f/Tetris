@@ -92,6 +92,30 @@
 		<Unit filename="C:/Projets/Tetris/Application.h">
 			<Option target="Tetris"/>
 		</Unit>
+		<Unit filename="C:/Projets/Tetris/ApplicationStates/State.cpp">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/ApplicationStates/State.h">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/ApplicationStates/StateStack.cpp">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/ApplicationStates/StateStack.h">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/ApplicationStates/StatesEnum.h">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/CommonTypedefs.h">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/Logger.cpp">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/Logger.h">
+			<Option target="Tetris"/>
+		</Unit>
 		<Unit filename="C:/Projets/Tetris/main.cpp">
 			<Option target="Tetris"/>
 		</Unit>

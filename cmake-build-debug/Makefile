@@ -152,6 +152,78 @@ Application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/Application.cpp.s
 .PHONY : Application.cpp.s
 
+ApplicationStates/State.obj: ApplicationStates/State.cpp.obj
+.PHONY : ApplicationStates/State.obj
+
+# target to build an object file
+ApplicationStates/State.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/State.cpp.obj
+.PHONY : ApplicationStates/State.cpp.obj
+
+ApplicationStates/State.i: ApplicationStates/State.cpp.i
+.PHONY : ApplicationStates/State.i
+
+# target to preprocess a source file
+ApplicationStates/State.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/State.cpp.i
+.PHONY : ApplicationStates/State.cpp.i
+
+ApplicationStates/State.s: ApplicationStates/State.cpp.s
+.PHONY : ApplicationStates/State.s
+
+# target to generate assembly for a file
+ApplicationStates/State.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/State.cpp.s
+.PHONY : ApplicationStates/State.cpp.s
+
+ApplicationStates/StateStack.obj: ApplicationStates/StateStack.cpp.obj
+.PHONY : ApplicationStates/StateStack.obj
+
+# target to build an object file
+ApplicationStates/StateStack.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/StateStack.cpp.obj
+.PHONY : ApplicationStates/StateStack.cpp.obj
+
+ApplicationStates/StateStack.i: ApplicationStates/StateStack.cpp.i
+.PHONY : ApplicationStates/StateStack.i
+
+# target to preprocess a source file
+ApplicationStates/StateStack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/StateStack.cpp.i
+.PHONY : ApplicationStates/StateStack.cpp.i
+
+ApplicationStates/StateStack.s: ApplicationStates/StateStack.cpp.s
+.PHONY : ApplicationStates/StateStack.s
+
+# target to generate assembly for a file
+ApplicationStates/StateStack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/StateStack.cpp.s
+.PHONY : ApplicationStates/StateStack.cpp.s
+
+Logger.obj: Logger.cpp.obj
+.PHONY : Logger.obj
+
+# target to build an object file
+Logger.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/Logger.cpp.obj
+.PHONY : Logger.cpp.obj
+
+Logger.i: Logger.cpp.i
+.PHONY : Logger.i
+
+# target to preprocess a source file
+Logger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/Logger.cpp.i
+.PHONY : Logger.cpp.i
+
+Logger.s: Logger.cpp.s
+.PHONY : Logger.s
+
+# target to generate assembly for a file
+Logger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/Logger.cpp.s
+.PHONY : Logger.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -188,6 +260,15 @@ help:
 	@echo ... Application.obj
 	@echo ... Application.i
 	@echo ... Application.s
+	@echo ... ApplicationStates/State.obj
+	@echo ... ApplicationStates/State.i
+	@echo ... ApplicationStates/State.s
+	@echo ... ApplicationStates/StateStack.obj
+	@echo ... ApplicationStates/StateStack.i
+	@echo ... ApplicationStates/StateStack.s
+	@echo ... Logger.obj
+	@echo ... Logger.i
+	@echo ... Logger.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

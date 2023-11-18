@@ -2,17 +2,16 @@
 #include "Logger.h"
 
 int main() {
-    Logger logger("main");
-    logger.log_info("Running application");
+    LOG_INFO("Running application");
 
     try {
         Application application;
         application.run();
     } catch (std::exception& exception) {
-        logger.log_fatal(exception.what());
-        logger.log_fatal("Program terminated");
+        LOG_FATAL(exception.what());
+        LOG_FATAL("Program terminated");
         return 1;
     }
 
-    logger.log_info("Program finished");
+    LOG_INFO("Program finished");
 }
