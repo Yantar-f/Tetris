@@ -7,7 +7,7 @@
 #include <ctime>
 
 
-void Logger::log(Logger::Level level,const char* file, int line, const std::string& message) {
+void Logger::log(Logger::Level level, const char* file, int line, const std::string& message) {
     time_t now = time(nullptr);
     tm* gmt = gmtime(&now);
 
