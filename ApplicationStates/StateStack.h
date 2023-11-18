@@ -3,10 +3,11 @@
 
 #pragma once
 #include <memory>
+#include <vector>
+#include <functional>
 #include <unordered_map>
 #include "State.h"
 #include "StatesEnum.h"
-#include <functional>
 #include "../CommonTypedefs.h"
 
 class State;
@@ -23,7 +24,7 @@ public:
 private:
     std::unique_ptr<State> createState(StatesEnum);
 
-    std::vector<std::unique_ptr<State>> stack {10};
+    std::vector<std::unique_ptr<State>> stack;
     std::unordered_map<StatesEnum, std::function<std::unique_ptr<State>()>> stateFactory;
 };
 

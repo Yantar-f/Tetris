@@ -1,18 +1,25 @@
 #include <cassert>
-#include "StateStack.h"
 #include <unordered_map>
+#include "StateStack.h"
 #include "../Logger.h"
+#include "../FatalTerminationManager.h"
 
-void StateStack::handleEvent(sf::Event) {
-
+void StateStack::handleEvent(sf::Event event) {
+    for (size_t i = stack.size() - 1; i > -1; --i) {
+        if (!stack[i]->handleEvent(event)) break;
+    }
 }
 
-void StateStack::update(TimePointMs) {
-
+void StateStack::update(TimePointMs timePoint) {
+    for (size_t i = stack.size() - 1; i > -1; --i) {
+        if (!stack[i]->update(timePoint)) break;
+    }
 }
 
 void StateStack::draw() {
-
+    for (size_t i = stack.size() - 1; i > -1; --i) {
+        if (!stack[i]->draw()) break;
+    }
 }
 
 bool StateStack::isEmpty() const {
@@ -20,16 +27,22 @@ bool StateStack::isEmpty() const {
 }
 
 std::unique_ptr<State> StateStack::createState(StatesEnum stateID) {
-    auto iterator = stateFactory.find(stateID);
-    assert(iterator != stateFactory.end());
+    LOG_INFO(std::string("Creating state: id = ").append(std::to_string(stateID)));
 
-    return iterator->second();
+    auto it = stateFactory.find(stateID);
+
+    if (it == stateFactory.end()) {
+        LOG_FATAL(std::string("State not found: id = ").append(std::to_string(stateID)));
+        FatalTerminationManager::terminateApp(1);
+    }
+
+    return it->second();
 }
 
 template<class StateType>
 void StateStack::registerState(StatesEnum stateID) {
     stateFactory[stateID] = [this, stateID] () {
-        LOG_INFO(std::string("Creating state: id = ").append(std::to_string(stateID)));
+        LOG_INFO(std::string("Registering state: id = ").append(std::to_string(stateID)));
         return std::unique_ptr<State> (new StateType(*this));
     };
 }

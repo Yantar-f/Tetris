@@ -14,7 +14,7 @@ public:
     virtual int getID() const = 0;
     virtual bool handleEvent(sf::Event) = 0;
     virtual bool update(TimePointMs) = 0;
-    virtual void draw() = 0;
+    virtual bool draw() = 0;
 private:
     StateStack& stateStack;
 };

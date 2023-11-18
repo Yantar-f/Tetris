@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "Logger.h"
+#include "FatalTerminationManager.h"
 
 int main() {
     LOG_INFO("Running application");
@@ -7,11 +8,11 @@ int main() {
     try {
         Application application;
         application.run();
-    } catch (std::exception& exception) {
-        LOG_FATAL(exception.what());
-        LOG_FATAL("Program terminated");
-        return 1;
+    } catch (std::exception& ex) {
+        LOG_FATAL(std::string("Undefined exception: ").append(ex.what()));
+        FatalTerminationManager::terminateApp(1);
     }
 
     LOG_INFO("Program finished");
+    return 0;
 }
