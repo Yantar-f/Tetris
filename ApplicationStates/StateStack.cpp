@@ -7,17 +7,20 @@ void StateStack::handleEvent(sf::Event event) {
     for (size_t i = stack.size() - 1; i > -1; --i) {
         if (!stack[i]->handleEvent(event)) break;
     }
+
+    applyPendingStackChanges();
 }
 
 void StateStack::update(TimePointMs timePoint) {
     for (size_t i = stack.size() - 1; i > -1; --i) {
         if (!stack[i]->update(timePoint)) break;
     }
+
+    applyPendingStackChanges();
 }
 
 void StateStack::draw() {
-    size_t length = stack.size();
-    for (size_t i = 0; i < length; ++i) {
+    for (size_t length = stack.size(), i = 0; i < length; ++i) {
         if (!stack[i]->draw()) break; // think about this moment
     }
 }
@@ -33,7 +36,7 @@ std::unique_ptr<State> StateStack::createState(StateType stateType) {
 
     if (it == stateFactory.end()) {
         LOG_FATAL(std::string("State not found: id = ").append(std::to_string(stateType)));
-        TERMINATE(1);
+        TERMINATE(EXIT_FAILURE);
     }
 
     return it->second();

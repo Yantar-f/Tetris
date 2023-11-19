@@ -43,13 +43,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 26,
+				"line" : 25,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 23,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
@@ -187,7 +187,7 @@
 			{
 				"command" : 7,
 				"file" : 0,
-				"line" : 25,
+				"line" : 24,
 				"parent" : 0
 			}
 		]
@@ -377,8 +377,7 @@
 				7,
 				9,
 				11,
-				12,
-				13
+				12
 			]
 		}
 	],
@@ -448,11 +447,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "FatalTerminationManager.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "ApplicationStates/Command.h",
 			"sourceGroupIndex" : 1
 		},
 		{

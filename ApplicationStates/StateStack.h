@@ -14,16 +14,23 @@ class State;
 
 class StateStack {
 public:
-    template<class StateToCreate>
-    void registerState(StateType);
-
     void handleEvent(sf::Event);
     void update(TimePointMs);
     void draw();
     bool isEmpty() const;
+
+    template<class StateToCreate>
+    void registerState(StateType);
+
+    void pushState(StateType);
+    void popState();
+    void clearStates();
+
 private:
+    void applyPendingStackChanges();
     std::unique_ptr<State> createState(StateType);
 
+private:
     std::vector<std::unique_ptr<State>> stack;
     std::unordered_map<StateType, std::function<std::unique_ptr<State>()>> stateFactory;
 };

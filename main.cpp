@@ -10,7 +10,7 @@ int main() {
         application.run();
     } catch (std::exception& ex) {
         LOG_FATAL(std::string("Undefined exception: ").append(ex.what()));
-        TERMINATE(1);
+        TERMINATE(EXIT_FAILURE);
     }
 
     LOG_INFO("Application finished");

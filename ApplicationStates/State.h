@@ -14,6 +14,12 @@ public:
     virtual bool handleEvent(sf::Event) = 0;
     virtual bool update(TimePointMs) = 0;
     virtual bool draw() = 0;
+
+protected:
+    void requestStackPush(StateType);
+    void requestStackPop();
+    void requestStateClear();
+
 private:
     StateStack& stateStack;
 };

@@ -15,7 +15,6 @@ add_executable(Tetris main.cpp
         Log/Logger.h
         FatalTerminationManager.cpp
         FatalTerminationManager.h
-        ApplicationStates/Command.h
         ApplicationStates/StateType.h)
 
 set(SFML_STATIC_LIBRARIES TRUE)
