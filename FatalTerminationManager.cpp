@@ -3,12 +3,7 @@
 //
 
 #include "FatalTerminationManager.h"
-#include "Logger.h"
-
-void FatalTerminationManager::terminateApp(const std::string& message, int statusCode) {
-    LOG_FATAL(message);
-    return terminateApp(statusCode);
-}
+#include "Log/Logger.h"
 
 void FatalTerminationManager::terminateApp(int statusCode) {
     LOG_FATAL("Program terminated");

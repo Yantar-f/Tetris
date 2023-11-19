@@ -1,6 +1,6 @@
 #include "Application.h"
 #include <chrono>
-#include "Logger.h"
+#include "Log/Logger.h"
 
 using namespace std::chrono_literals;
 

@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "Logger.h"
+#include "Log/Logger.h"
 #include "FatalTerminationManager.h"
 
 int main() {
@@ -10,9 +10,9 @@ int main() {
         application.run();
     } catch (std::exception& ex) {
         LOG_FATAL(std::string("Undefined exception: ").append(ex.what()));
-        FatalTerminationManager::terminateApp(1);
+        TERMINATE(1);
     }
 
-    LOG_INFO("Program finished");
+    LOG_INFO("Application finished");
     return 0;
 }

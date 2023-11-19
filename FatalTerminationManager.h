@@ -7,12 +7,14 @@
 
 #pragma once
 #include <string>
+#include "Log/Logger.h"
 
 class FatalTerminationManager {
 public:
-    static void terminateApp(const std::string& message, int statusCode);
     static void terminateApp(int statusCode);
 };
 
+#define TERMINATE(statusCode) FatalTerminationManager::terminateApp(statusCode)
+#define TERMINATE_M(statusCode, message) (LOG_FATAL(message), FatalTerminationManager::terminateApp(statusCode))
 
 #endif //TETRIS_FATALTERMINATIONMANAGER_H
