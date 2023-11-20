@@ -15,7 +15,9 @@ add_executable(Tetris main.cpp
         Log/Logger.h
         FatalTerminationManager.cpp
         FatalTerminationManager.h
-        ApplicationStates/StateType.h)
+        ApplicationStates/StateType.h
+        ApplicationStates/Commands/PushStateCommand.cpp
+        ApplicationStates/Commands/StateStackCommand.cpp)
 
 set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR C:/SFML-2.6/lib/cmake/SFML)

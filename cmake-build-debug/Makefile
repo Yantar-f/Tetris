@@ -152,6 +152,54 @@ Application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/Application.cpp.s
 .PHONY : Application.cpp.s
 
+ApplicationStates/Commands/PushStateCommand.obj: ApplicationStates/Commands/PushStateCommand.cpp.obj
+.PHONY : ApplicationStates/Commands/PushStateCommand.obj
+
+# target to build an object file
+ApplicationStates/Commands/PushStateCommand.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/Commands/PushStateCommand.cpp.obj
+.PHONY : ApplicationStates/Commands/PushStateCommand.cpp.obj
+
+ApplicationStates/Commands/PushStateCommand.i: ApplicationStates/Commands/PushStateCommand.cpp.i
+.PHONY : ApplicationStates/Commands/PushStateCommand.i
+
+# target to preprocess a source file
+ApplicationStates/Commands/PushStateCommand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/Commands/PushStateCommand.cpp.i
+.PHONY : ApplicationStates/Commands/PushStateCommand.cpp.i
+
+ApplicationStates/Commands/PushStateCommand.s: ApplicationStates/Commands/PushStateCommand.cpp.s
+.PHONY : ApplicationStates/Commands/PushStateCommand.s
+
+# target to generate assembly for a file
+ApplicationStates/Commands/PushStateCommand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/Commands/PushStateCommand.cpp.s
+.PHONY : ApplicationStates/Commands/PushStateCommand.cpp.s
+
+ApplicationStates/Commands/StateStackCommand.obj: ApplicationStates/Commands/StateStackCommand.cpp.obj
+.PHONY : ApplicationStates/Commands/StateStackCommand.obj
+
+# target to build an object file
+ApplicationStates/Commands/StateStackCommand.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/Commands/StateStackCommand.cpp.obj
+.PHONY : ApplicationStates/Commands/StateStackCommand.cpp.obj
+
+ApplicationStates/Commands/StateStackCommand.i: ApplicationStates/Commands/StateStackCommand.cpp.i
+.PHONY : ApplicationStates/Commands/StateStackCommand.i
+
+# target to preprocess a source file
+ApplicationStates/Commands/StateStackCommand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/Commands/StateStackCommand.cpp.i
+.PHONY : ApplicationStates/Commands/StateStackCommand.cpp.i
+
+ApplicationStates/Commands/StateStackCommand.s: ApplicationStates/Commands/StateStackCommand.cpp.s
+.PHONY : ApplicationStates/Commands/StateStackCommand.s
+
+# target to generate assembly for a file
+ApplicationStates/Commands/StateStackCommand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/Commands/StateStackCommand.cpp.s
+.PHONY : ApplicationStates/Commands/StateStackCommand.cpp.s
+
 ApplicationStates/State.obj: ApplicationStates/State.cpp.obj
 .PHONY : ApplicationStates/State.obj
 
@@ -200,29 +248,53 @@ ApplicationStates/StateStack.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/ApplicationStates/StateStack.cpp.s
 .PHONY : ApplicationStates/StateStack.cpp.s
 
-Logger.obj: Logger.cpp.obj
-.PHONY : Logger.obj
+FatalTerminationManager.obj: FatalTerminationManager.cpp.obj
+.PHONY : FatalTerminationManager.obj
 
 # target to build an object file
-Logger.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/Logger.cpp.obj
-.PHONY : Logger.cpp.obj
+FatalTerminationManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/FatalTerminationManager.cpp.obj
+.PHONY : FatalTerminationManager.cpp.obj
 
-Logger.i: Logger.cpp.i
-.PHONY : Logger.i
+FatalTerminationManager.i: FatalTerminationManager.cpp.i
+.PHONY : FatalTerminationManager.i
 
 # target to preprocess a source file
-Logger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/Logger.cpp.i
-.PHONY : Logger.cpp.i
+FatalTerminationManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/FatalTerminationManager.cpp.i
+.PHONY : FatalTerminationManager.cpp.i
 
-Logger.s: Logger.cpp.s
-.PHONY : Logger.s
+FatalTerminationManager.s: FatalTerminationManager.cpp.s
+.PHONY : FatalTerminationManager.s
 
 # target to generate assembly for a file
-Logger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/Logger.cpp.s
-.PHONY : Logger.cpp.s
+FatalTerminationManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/FatalTerminationManager.cpp.s
+.PHONY : FatalTerminationManager.cpp.s
+
+Log/Logger.obj: Log/Logger.cpp.obj
+.PHONY : Log/Logger.obj
+
+# target to build an object file
+Log/Logger.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/Log/Logger.cpp.obj
+.PHONY : Log/Logger.cpp.obj
+
+Log/Logger.i: Log/Logger.cpp.i
+.PHONY : Log/Logger.i
+
+# target to preprocess a source file
+Log/Logger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/Log/Logger.cpp.i
+.PHONY : Log/Logger.cpp.i
+
+Log/Logger.s: Log/Logger.cpp.s
+.PHONY : Log/Logger.s
+
+# target to generate assembly for a file
+Log/Logger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/Log/Logger.cpp.s
+.PHONY : Log/Logger.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -260,15 +332,24 @@ help:
 	@echo ... Application.obj
 	@echo ... Application.i
 	@echo ... Application.s
+	@echo ... ApplicationStates/Commands/PushStateCommand.obj
+	@echo ... ApplicationStates/Commands/PushStateCommand.i
+	@echo ... ApplicationStates/Commands/PushStateCommand.s
+	@echo ... ApplicationStates/Commands/StateStackCommand.obj
+	@echo ... ApplicationStates/Commands/StateStackCommand.i
+	@echo ... ApplicationStates/Commands/StateStackCommand.s
 	@echo ... ApplicationStates/State.obj
 	@echo ... ApplicationStates/State.i
 	@echo ... ApplicationStates/State.s
 	@echo ... ApplicationStates/StateStack.obj
 	@echo ... ApplicationStates/StateStack.i
 	@echo ... ApplicationStates/StateStack.s
-	@echo ... Logger.obj
-	@echo ... Logger.i
-	@echo ... Logger.s
+	@echo ... FatalTerminationManager.obj
+	@echo ... FatalTerminationManager.i
+	@echo ... FatalTerminationManager.s
+	@echo ... Log/Logger.obj
+	@echo ... Log/Logger.i
+	@echo ... Log/Logger.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

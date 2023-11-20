@@ -3,6 +3,7 @@
 
 #include <SFML/Window/Event.hpp>
 #include "StateStack.h"
+#include "StateType.h"
 #include "../CommonTypedefs.h"
 
 class StateStack;

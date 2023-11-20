@@ -11,6 +11,9 @@ void State::requestStackPush(StateType stateType) {
 }
 
 void State::requestStackPop() {
-
+    stateStack.popState();
 }
 
+void State::requestStateClear() {
+    stateStack.clearStates();
+}

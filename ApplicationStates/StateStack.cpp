@@ -2,6 +2,7 @@
 #include "StateStack.h"
 #include "../Log/Logger.h"
 #include "../FatalTerminationManager.h"
+#include "Commands/ClearStateCommand.h"
 
 void StateStack::handleEvent(sf::Event event) {
     for (size_t i = stack.size() - 1; i > -1; --i) {
@@ -42,6 +43,22 @@ std::unique_ptr<State> StateStack::createState(StateType stateType) {
     return it->second();
 }
 
+void StateStack::applyPendingStackChanges() {
+
+}
+
+void StateStack::pushState(StateType) {
+
+}
+
+void StateStack::popState() {
+
+}
+
+void StateStack::clearStates() {
+    pendingStackChanges.push_back(std::unique_ptr<StateStackCommand>(ClearStateCommand(*this)));
+}
+
 template<class StateToCreate>
 void StateStack::registerState(StateType stateType) {
     stateFactory[stateType] = [this, stateType] () {
@@ -49,3 +66,5 @@ void StateStack::registerState(StateType stateType) {
         return std::unique_ptr<State> (new StateToCreate(*this));
     };
 }
+
+

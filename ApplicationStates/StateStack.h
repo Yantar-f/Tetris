@@ -9,10 +9,16 @@
 #include "State.h"
 #include "../CommonTypedefs.h"
 #include "StateType.h"
+#include "Commands/StateStackCommand.h"
 
 class State;
+class StateStackCommand;
 
 class StateStack {
+    friend class PushStateCommand;
+    friend class PopStateCommand;
+    friend class ClearStateCommand;
+
 public:
     void handleEvent(sf::Event);
     void update(TimePointMs);
@@ -26,12 +32,15 @@ public:
     void popState();
     void clearStates();
 
-private:
-    void applyPendingStackChanges();
+protected:
     std::unique_ptr<State> createState(StateType);
 
 private:
+    void applyPendingStackChanges();
+
+private:
     std::vector<std::unique_ptr<State>> stack;
+    std::vector<std::unique_ptr<StateStackCommand>> pendingStackChanges;
     std::unordered_map<StateType, std::function<std::unique_ptr<State>()>> stateFactory;
 };
 

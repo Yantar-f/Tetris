@@ -92,6 +92,18 @@
 		<Unit filename="C:/Projets/Tetris/Application.h">
 			<Option target="Tetris"/>
 		</Unit>
+		<Unit filename="C:/Projets/Tetris/ApplicationStates/Commands/PushStateCommand.cpp">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/ApplicationStates/Commands/PushStateCommand.h">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/ApplicationStates/Commands/StateStackCommand.cpp">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/ApplicationStates/Commands/StateStackCommand.h">
+			<Option target="Tetris"/>
+		</Unit>
 		<Unit filename="C:/Projets/Tetris/ApplicationStates/State.cpp">
 			<Option target="Tetris"/>
 		</Unit>
@@ -104,16 +116,22 @@
 		<Unit filename="C:/Projets/Tetris/ApplicationStates/StateStack.h">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/ApplicationStates/StatesEnum.h">
+		<Unit filename="C:/Projets/Tetris/ApplicationStates/StateType.h">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/CommonTypedefs.h">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/Logger.cpp">
+		<Unit filename="C:/Projets/Tetris/FatalTerminationManager.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/Logger.h">
+		<Unit filename="C:/Projets/Tetris/FatalTerminationManager.h">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/Log/Logger.cpp">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/Log/Logger.h">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/main.cpp">
