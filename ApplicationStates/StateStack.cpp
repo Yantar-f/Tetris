@@ -2,9 +2,10 @@
 #include "StateStack.h"
 #include "../Log/Logger.h"
 #include "../FatalTerminationManager.h"
-#include "Commands/ClearStateCommand.h"
-#include "Commands/PopStateCommand.h"
-#include "Commands/PushStateCommand.h"
+#include "../Commands/ClearStateCommand.h"
+#include "../Commands/PopStateCommand.h"
+#include "../Commands/PushStateCommand.h"
+#include "PreloadAppState.h"
 
 void StateStack::handleEvent(sf::Event event) {
     for (size_t i = stack.size() - 1; i > -1; --i) {
@@ -46,31 +47,21 @@ std::unique_ptr<State> StateStack::createState(StateType stateType) {
 }
 
 void StateStack::applyPendingStackChanges() {
-    for (size_t length = pendingStackChanges.size(), i = 0; i < length; ++i) {
-        pendingStackChanges[i]->execute();
+    for (size_t length = pendingChanges.size(), i = 0; i < length; ++i) {
+        pendingChanges[i]->execute();
     }
 
-    pendingStackChanges.clear();
+    pendingChanges.clear();
 }
 
 void StateStack::pushState(StateType stateType) {
-    pendingStackChanges.push_back(std::unique_ptr<StateStackCommand>(new PushStateCommand(*this, stateType)));
+    pendingChanges.push_back(std::unique_ptr<Command>(new PushStateCommand(*this, stateType)));
 }
 
 void StateStack::popState() {
-    pendingStackChanges.push_back(std::unique_ptr<StateStackCommand>(new PopStateCommand(*this)));
+    pendingChanges.push_back(std::unique_ptr<Command>(new PopStateCommand(*this)));
 }
 
 void StateStack::clearStates() {
-    pendingStackChanges.push_back(std::unique_ptr<StateStackCommand>(new ClearStateCommand(*this)));
+    pendingChanges.push_back(std::unique_ptr<Command>(new ClearStateCommand(*this)));
 }
-
-template<class StateToCreate>
-void StateStack::registerState(StateType stateType) {
-    stateFactory[stateType] = [this, stateType] () {
-        LOG_INFO(std::string("Registering state: id = ").append(std::to_string(stateType)));
-        return std::unique_ptr<State> (new StateToCreate(*this));
-    };
-}
-
-

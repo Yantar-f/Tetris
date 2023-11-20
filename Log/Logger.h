@@ -1,7 +1,3 @@
-//
-// Created by Yantar on 17/11/2023.
-//
-
 #ifndef TETRIS_LOGGER_H
 #define TETRIS_LOGGER_H
 

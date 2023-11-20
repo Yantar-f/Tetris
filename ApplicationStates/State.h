@@ -4,7 +4,7 @@
 #include <SFML/Window/Event.hpp>
 #include "StateStack.h"
 #include "StateType.h"
-#include "../CommonTypedefs.h"
+#include "../CommonDefinitions.h"
 
 class StateStack;
 

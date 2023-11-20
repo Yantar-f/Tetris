@@ -1,13 +1,20 @@
 #include "Application.h"
 #include <chrono>
 #include "Log/Logger.h"
+#include "ApplicationStates/MainMenuState.h"
+#include "ApplicationStates/PreloadAppState.h"
+#include "ApplicationStates/GameState.h"
+#include "ApplicationStates/GamePauseState.h"
 
 using namespace std::chrono_literals;
 
 Application::Application() :
-    mainWindow(sf::VideoMode(800,600), "Tetris", sf::Style::Close) {}
+    mainWindow(sf::VideoMode(DEFAULT_WINDOW_WIDTH,DEFAULT_WINDOW_HEIGHT), DEFAULT_WINDOW_TITLE, sf::Style::Close) {}
 
 void Application::run() {
+    registerStates();
+    initializeStates();
+
     while (mainWindow.isOpen()) {
         processEvents();
         update();
@@ -35,13 +42,22 @@ void Application::processEvents() {
 }
 
 void Application::update() {
-    stateStack.update(stampTimePoint());
+    stateStack.update(TIME_POINT);
 }
 
 void Application::render() {
     stateStack.draw();
 }
 
-TimePointMs Application::stampTimePoint() {
-    return std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now());
+
+void Application::registerStates() {
+    stateStack.registerState<PreloadAppState>(StateType::PreloadApp);
+    /*stateStack.registerState<MainMenuState>(StateType::MainMenu);
+    stateStack.registerState<GameState>(StateType::Game);
+    stateStack.registerState<GamePauseState>(StateType::GamePause);*/
 }
+
+void Application::initializeStates() {
+    stateStack.pushState(StateType::PreloadApp);
+}
+

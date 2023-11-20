@@ -1,18 +1,17 @@
 #ifndef TETRIS_STATESTACK_H
 #define TETRIS_STATESTACK_H
 
-#pragma once
 #include <memory>
 #include <vector>
 #include <functional>
 #include <unordered_map>
 #include "State.h"
-#include "../CommonTypedefs.h"
+#include "../CommonDefinitions.h"
 #include "StateType.h"
-#include "Commands/StateStackCommand.h"
+#include "../Commands/Command.h"
+#include "../Log/Logger.h"
 
 class State;
-class StateStackCommand;
 
 class StateStack {
     friend class PushStateCommand;
@@ -25,23 +24,27 @@ public:
     void draw();
     bool isEmpty() const;
 
-    template<class StateToCreate>
+    template<typename StateToCreate>
     void registerState(StateType);
 
     void pushState(StateType);
     void popState();
     void clearStates();
 
-protected:
-    std::unique_ptr<State> createState(StateType);
-
 private:
+    std::unique_ptr<State> createState(StateType);
     void applyPendingStackChanges();
 
 private:
     std::vector<std::unique_ptr<State>> stack;
-    std::vector<std::unique_ptr<StateStackCommand>> pendingStackChanges;
+    std::vector<std::unique_ptr<Command>> pendingChanges;
     std::unordered_map<StateType, std::function<std::unique_ptr<State>()>> stateFactory;
 };
+
+template<typename StateToCreate>
+void StateStack::registerState(StateType stateType) {
+    LOG_INFO(std::string("Registering state: id = ").append(std::to_string(stateType)));
+    stateFactory[stateType] = [this, stateType] () { return std::unique_ptr<State> (new StateToCreate(*this));};
+}
 
 #endif //TETRIS_STATESTACK_H

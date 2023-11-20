@@ -1,11 +1,6 @@
-//
-// Created by Yantar on 18/11/2023.
-//
-
 #ifndef TETRIS_FATALTERMINATIONMANAGER_H
 #define TETRIS_FATALTERMINATIONMANAGER_H
 
-#pragma once
 #include <string>
 #include "Log/Logger.h"
 

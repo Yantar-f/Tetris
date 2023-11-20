@@ -10,16 +10,25 @@ add_executable(Tetris main.cpp
         ApplicationStates/StateStack.h
         ApplicationStates/State.cpp
         ApplicationStates/State.h
-        CommonTypedefs.h
+        CommonDefinitions.h
         Log/Logger.cpp
         Log/Logger.h
         FatalTerminationManager.cpp
         FatalTerminationManager.h
         ApplicationStates/StateType.h
-        ApplicationStates/Commands/PushStateCommand.cpp
-        ApplicationStates/Commands/StateStackCommand.cpp
-        ApplicationStates/Commands/PopStateCommand.cpp
-        ApplicationStates/Commands/ClearStateCommand.cpp)
+        Commands/PushStateCommand.cpp
+        Commands/StateStackCommand.cpp
+        Commands/PopStateCommand.cpp
+        Commands/ClearStateCommand.cpp
+        ApplicationStates/MainMenuState.cpp
+        ApplicationStates/MainMenuState.h
+        ApplicationStates/PreloadAppState.cpp
+        ApplicationStates/PreloadAppState.h
+        ApplicationStates/GameState.cpp
+        ApplicationStates/GameState.h
+        ApplicationStates/GamePauseState.cpp
+        ApplicationStates/GamePauseState.h
+)
 
 set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR C:/SFML-2.6/lib/cmake/SFML)
