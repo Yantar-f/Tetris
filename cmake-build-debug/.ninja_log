@@ -1,9 +1,13 @@
 # ninja log v5
-26	959	7219971971474783	CMakeFiles/Tetris.dir/Logger.cpp.obj	c5978ae0e1dccf3
-7	1637	7221111093592579	CMakeFiles/Tetris.dir/main.cpp.obj	beaebaf9e9c41ed1
+59	2392	7221820255318885	CMakeFiles/Tetris.dir/main.cpp.obj	beaebaf9e9c41ed1
 1637	2393	7221111101097726	Tetris.exe	6567d0b1ba5f4121
-8	1991	7221102454650924	CMakeFiles/Tetris.dir/Application.cpp.obj	50e4b8b9dbe346ee
-1991	3224	7221102466973746	CMakeFiles/Tetris.dir/ApplicationStates/State.cpp.obj	14be2bca1a29208
-34	1554	7221109837625201	CMakeFiles/Tetris.dir/ApplicationStates/StateStack.cpp.obj	d2751ec5b6e414a
-24	772	7221109829808472	CMakeFiles/Tetris.dir/FatalTerminationManager.cpp.obj	64b430e24df56885
-2068	2792	7221102462682111	CMakeFiles/Tetris.dir/Log/Logger.cpp.obj	bb07c1585c729689
+31	2372	7221820255157279	CMakeFiles/Tetris.dir/Application.cpp.obj	50e4b8b9dbe346ee
+2000	3444	7221820265871075	CMakeFiles/Tetris.dir/ApplicationStates/State.cpp.obj	14be2bca1a29208
+2373	4023	7221820271640272	CMakeFiles/Tetris.dir/ApplicationStates/StateStack.cpp.obj	d2751ec5b6e414a
+3445	4017	7221820271589346	CMakeFiles/Tetris.dir/FatalTerminationManager.cpp.obj	64b430e24df56885
+65	1999	7221820251396783	CMakeFiles/Tetris.dir/Log/Logger.cpp.obj	bb07c1585c729689
+2393	3815	7221820269570725	CMakeFiles/Tetris.dir/ApplicationStates/Commands/PushStateCommand.cpp.obj	6f14b5904ef024c8
+3815	4998	7221820281405661	CMakeFiles/Tetris.dir/ApplicationStates/Commands/StateStackCommand.cpp.obj	8a42a267d265f9b6
+6	1233	7221820953934377	CMakeFiles/Tetris.dir/ApplicationStates/Commands/PopStateCommand.cpp.obj	21a17d1e372cfde9
+6	1299	7221821100446846	CMakeFiles/Tetris.dir/ApplicationStates/Commands/ClearStateCommand.cpp.obj	e704342c93dcff96
+1299	2091	7221821108295104	Tetris.exe	9a3269ba54f826f9

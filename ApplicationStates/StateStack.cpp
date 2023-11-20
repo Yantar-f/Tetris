@@ -3,6 +3,8 @@
 #include "../Log/Logger.h"
 #include "../FatalTerminationManager.h"
 #include "Commands/ClearStateCommand.h"
+#include "Commands/PopStateCommand.h"
+#include "Commands/PushStateCommand.h"
 
 void StateStack::handleEvent(sf::Event event) {
     for (size_t i = stack.size() - 1; i > -1; --i) {
@@ -44,19 +46,23 @@ std::unique_ptr<State> StateStack::createState(StateType stateType) {
 }
 
 void StateStack::applyPendingStackChanges() {
+    for (size_t length = pendingStackChanges.size(), i = 0; i < length; ++i) {
+        pendingStackChanges[i]->execute();
+    }
 
+    pendingStackChanges.clear();
 }
 
-void StateStack::pushState(StateType) {
-
+void StateStack::pushState(StateType stateType) {
+    pendingStackChanges.push_back(std::unique_ptr<StateStackCommand>(new PushStateCommand(*this, stateType)));
 }
 
 void StateStack::popState() {
-
+    pendingStackChanges.push_back(std::unique_ptr<StateStackCommand>(new PopStateCommand(*this)));
 }
 
 void StateStack::clearStates() {
-    pendingStackChanges.push_back(std::unique_ptr<StateStackCommand>(ClearStateCommand(*this)));
+    pendingStackChanges.push_back(std::unique_ptr<StateStackCommand>(new ClearStateCommand(*this)));
 }
 
 template<class StateToCreate>

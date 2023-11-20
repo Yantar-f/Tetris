@@ -14,6 +14,7 @@ class StateStack;
 class StateStackCommand : public Command {
 public:
     explicit StateStackCommand(StateStack& stateStack);
+    virtual ~StateStackCommand() = default;
 
 protected:
     StateStack& stateStack;

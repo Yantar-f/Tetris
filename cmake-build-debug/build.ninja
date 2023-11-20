@@ -97,6 +97,38 @@ build CMakeFiles/Tetris.dir/FatalTerminationManager.cpp.obj: CXX_COMPILER__Tetri
   OBJECT_DIR = CMakeFiles\Tetris.dir
   OBJECT_FILE_DIR = CMakeFiles\Tetris.dir
 
+build CMakeFiles/Tetris.dir/ApplicationStates/Commands/PushStateCommand.cpp.obj: CXX_COMPILER__Tetris_unscanned_Debug F$:/Projects/Tetris/ApplicationStates/Commands/PushStateCommand.cpp || cmake_object_order_depends_target_Tetris
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\Tetris.dir\ApplicationStates\Commands\PushStateCommand.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -isystem C:/SFML-2.6/include
+  OBJECT_DIR = CMakeFiles\Tetris.dir
+  OBJECT_FILE_DIR = CMakeFiles\Tetris.dir\ApplicationStates\Commands
+
+build CMakeFiles/Tetris.dir/ApplicationStates/Commands/StateStackCommand.cpp.obj: CXX_COMPILER__Tetris_unscanned_Debug F$:/Projects/Tetris/ApplicationStates/Commands/StateStackCommand.cpp || cmake_object_order_depends_target_Tetris
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\Tetris.dir\ApplicationStates\Commands\StateStackCommand.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -isystem C:/SFML-2.6/include
+  OBJECT_DIR = CMakeFiles\Tetris.dir
+  OBJECT_FILE_DIR = CMakeFiles\Tetris.dir\ApplicationStates\Commands
+
+build CMakeFiles/Tetris.dir/ApplicationStates/Commands/PopStateCommand.cpp.obj: CXX_COMPILER__Tetris_unscanned_Debug F$:/Projects/Tetris/ApplicationStates/Commands/PopStateCommand.cpp || cmake_object_order_depends_target_Tetris
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\Tetris.dir\ApplicationStates\Commands\PopStateCommand.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -isystem C:/SFML-2.6/include
+  OBJECT_DIR = CMakeFiles\Tetris.dir
+  OBJECT_FILE_DIR = CMakeFiles\Tetris.dir\ApplicationStates\Commands
+
+build CMakeFiles/Tetris.dir/ApplicationStates/Commands/ClearStateCommand.cpp.obj: CXX_COMPILER__Tetris_unscanned_Debug F$:/Projects/Tetris/ApplicationStates/Commands/ClearStateCommand.cpp || cmake_object_order_depends_target_Tetris
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\Tetris.dir\ApplicationStates\Commands\ClearStateCommand.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -isystem C:/SFML-2.6/include
+  OBJECT_DIR = CMakeFiles\Tetris.dir
+  OBJECT_FILE_DIR = CMakeFiles\Tetris.dir\ApplicationStates\Commands
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Tetris
@@ -105,7 +137,7 @@ build CMakeFiles/Tetris.dir/FatalTerminationManager.cpp.obj: CXX_COMPILER__Tetri
 #############################################
 # Link the executable Tetris.exe
 
-build Tetris.exe: CXX_EXECUTABLE_LINKER__Tetris_Debug CMakeFiles/Tetris.dir/main.cpp.obj CMakeFiles/Tetris.dir/Application.cpp.obj CMakeFiles/Tetris.dir/ApplicationStates/StateStack.cpp.obj CMakeFiles/Tetris.dir/ApplicationStates/State.cpp.obj CMakeFiles/Tetris.dir/Log/Logger.cpp.obj CMakeFiles/Tetris.dir/FatalTerminationManager.cpp.obj | C$:/SFML-2.6/lib/libsfml-system-s-d.a C$:/SFML-2.6/lib/libsfml-window-s-d.a C$:/SFML-2.6/lib/libsfml-graphics-s-d.a C$:/SFML-2.6/lib/libsfml-audio-s-d.a C$:/SFML-2.6/lib/libsfml-network-s-d.a C$:/SFML-2.6/lib/libsfml-window-s-d.a C$:/SFML-2.6/lib/libfreetype.a C$:/SFML-2.6/lib/libopenal32.a C$:/SFML-2.6/lib/libvorbisfile.a C$:/SFML-2.6/lib/libvorbisenc.a C$:/SFML-2.6/lib/libvorbis.a C$:/SFML-2.6/lib/libogg.a C$:/SFML-2.6/lib/libFLAC.a C$:/SFML-2.6/lib/libsfml-system-s-d.a
+build Tetris.exe: CXX_EXECUTABLE_LINKER__Tetris_Debug CMakeFiles/Tetris.dir/main.cpp.obj CMakeFiles/Tetris.dir/Application.cpp.obj CMakeFiles/Tetris.dir/ApplicationStates/StateStack.cpp.obj CMakeFiles/Tetris.dir/ApplicationStates/State.cpp.obj CMakeFiles/Tetris.dir/Log/Logger.cpp.obj CMakeFiles/Tetris.dir/FatalTerminationManager.cpp.obj CMakeFiles/Tetris.dir/ApplicationStates/Commands/PushStateCommand.cpp.obj CMakeFiles/Tetris.dir/ApplicationStates/Commands/StateStackCommand.cpp.obj CMakeFiles/Tetris.dir/ApplicationStates/Commands/PopStateCommand.cpp.obj CMakeFiles/Tetris.dir/ApplicationStates/Commands/ClearStateCommand.cpp.obj | C$:/SFML-2.6/lib/libsfml-system-s-d.a C$:/SFML-2.6/lib/libsfml-window-s-d.a C$:/SFML-2.6/lib/libsfml-graphics-s-d.a C$:/SFML-2.6/lib/libsfml-audio-s-d.a C$:/SFML-2.6/lib/libsfml-network-s-d.a C$:/SFML-2.6/lib/libsfml-window-s-d.a C$:/SFML-2.6/lib/libfreetype.a C$:/SFML-2.6/lib/libopenal32.a C$:/SFML-2.6/lib/libvorbisfile.a C$:/SFML-2.6/lib/libvorbisenc.a C$:/SFML-2.6/lib/libvorbis.a C$:/SFML-2.6/lib/libogg.a C$:/SFML-2.6/lib/libFLAC.a C$:/SFML-2.6/lib/libsfml-system-s-d.a
   FLAGS = -g
   LINK_LIBRARIES = C:/SFML-2.6/lib/libsfml-system-s-d.a  C:/SFML-2.6/lib/libsfml-window-s-d.a  C:/SFML-2.6/lib/libsfml-graphics-s-d.a  C:/SFML-2.6/lib/libsfml-audio-s-d.a  C:/SFML-2.6/lib/libsfml-network-s-d.a  C:/SFML-2.6/lib/libsfml-window-s-d.a  -lOpenGL32  -lgdi32  C:/SFML-2.6/lib/libfreetype.a  C:/SFML-2.6/lib/libopenal32.a  C:/SFML-2.6/lib/libvorbisfile.a  C:/SFML-2.6/lib/libvorbisenc.a  C:/SFML-2.6/lib/libvorbis.a  C:/SFML-2.6/lib/libogg.a  C:/SFML-2.6/lib/libFLAC.a  C:/SFML-2.6/lib/libsfml-system-s-d.a  -lwinmm  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Tetris.dir
