@@ -5,7 +5,11 @@
 #include "State.h"
 
 class MainMenuState : public State {
-
+public:
+    explicit MainMenuState(StateStack&);
+    bool handleEvent(sf::Event) override;
+    bool update(TimePointMs) override;
+    bool draw() override;
 };
 
 

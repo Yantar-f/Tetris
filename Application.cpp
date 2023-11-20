@@ -52,9 +52,9 @@ void Application::render() {
 
 void Application::registerStates() {
     stateStack.registerState<PreloadAppState>(StateType::PreloadApp);
-    /*stateStack.registerState<MainMenuState>(StateType::MainMenu);
+    stateStack.registerState<MainMenuState>(StateType::MainMenu);
     stateStack.registerState<GameState>(StateType::Game);
-    stateStack.registerState<GamePauseState>(StateType::GamePause);*/
+    stateStack.registerState<GamePauseState>(StateType::GamePause);
 }
 
 void Application::initializeStates() {

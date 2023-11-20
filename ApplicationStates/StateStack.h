@@ -44,7 +44,7 @@ private:
 template<typename StateToCreate>
 void StateStack::registerState(StateType stateType) {
     LOG_INFO(std::string("Registering state: id = ").append(std::to_string(stateType)));
-    stateFactory[stateType] = [this, stateType] () { return std::unique_ptr<State> (new StateToCreate(*this));};
+    stateFactory[stateType] = [this] () { return std::unique_ptr<State> (new StateToCreate(*this));};
 }
 
 #endif //TETRIS_STATESTACK_H
