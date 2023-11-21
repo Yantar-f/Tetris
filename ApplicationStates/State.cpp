@@ -1,6 +1,6 @@
 #include "State.h"
 
-State::State(StateStack& stateStack) : stateStack(stateStack) {}
+State::State(StateStack& stateStack, Context context) : stateStack(stateStack), context(context) {}
 
 void State::requestStackPush(StateType stateType) {
     stateStack.pushState(stateType);

@@ -10,6 +10,7 @@
 #include "StateType.h"
 #include "../Commands/Command.h"
 #include "../Log/Logger.h"
+#include "../Context.h"
 
 class State;
 
@@ -19,6 +20,7 @@ class StateStack {
     friend class ClearStateCommand;
 
 public:
+    explicit StateStack(Context);
     void handleEvent(sf::Event);
     void update(TimePointMs);
     void draw();
@@ -36,6 +38,7 @@ private:
     void applyPendingStackChanges();
 
 private:
+    Context context;
     std::vector<std::unique_ptr<State>> stack;
     std::vector<std::unique_ptr<Command>> pendingChanges;
     std::unordered_map<StateType, std::function<std::unique_ptr<State>()>> stateFactory;
@@ -44,7 +47,7 @@ private:
 template<typename StateToCreate>
 void StateStack::registerState(StateType stateType) {
     LOG_INFO(std::string("Registering state: id = ").append(std::to_string(stateType)));
-    stateFactory[stateType] = [this] () { return std::unique_ptr<State> (new StateToCreate(*this));};
+    stateFactory[stateType] = [this] () { return std::unique_ptr<State> (new StateToCreate(*this, context));};
 }
 
 #endif //TETRIS_STATESTACK_H

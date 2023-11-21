@@ -9,7 +9,8 @@
 using namespace std::chrono_literals;
 
 Application::Application() :
-    mainWindow(sf::VideoMode(DEFAULT_WINDOW_WIDTH,DEFAULT_WINDOW_HEIGHT), DEFAULT_WINDOW_TITLE, sf::Style::Close) {}
+    mainWindow(sf::VideoMode(DEFAULT_WINDOW_WIDTH,DEFAULT_WINDOW_HEIGHT), DEFAULT_WINDOW_TITLE, sf::Style::Close),
+    stateStack(Context(mainWindow)){}
 
 void Application::run() {
     registerStates();

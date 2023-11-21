@@ -28,6 +28,7 @@ add_executable(Tetris main.cpp
         ApplicationStates/GameState.h
         ApplicationStates/GamePauseState.cpp
         ApplicationStates/GamePauseState.h
+        Context.cpp
 )
 
 set(SFML_STATIC_LIBRARIES TRUE)

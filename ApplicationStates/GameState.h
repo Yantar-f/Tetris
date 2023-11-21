@@ -3,9 +3,10 @@
 
 #include "State.h"
 
-class GameState : public State{
+class GameState : public State {
 public:
-    explicit GameState(StateStack&);
+    GameState(StateStack &stateStack, Context context);
+
     bool handleEvent(sf::Event) override;
     bool update(TimePointMs) override;
     bool draw() override;

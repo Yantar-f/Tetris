@@ -24,9 +24,13 @@ void StateStack::update(TimePointMs timePoint) {
 }
 
 void StateStack::draw() {
+    context.renderWindow.clear();
+
     for (size_t length = stack.size(), i = 0; i < length; ++i) {
         if (!stack[i]->draw()) break; // think about this moment
     }
+
+    context.renderWindow.display();
 }
 
 bool StateStack::isEmpty() const {
@@ -65,3 +69,5 @@ void StateStack::popState() {
 void StateStack::clearStates() {
     pendingChanges.push_back(std::unique_ptr<Command>(new ClearStateCommand(*this)));
 }
+
+StateStack::StateStack(Context context) : context(context) {}

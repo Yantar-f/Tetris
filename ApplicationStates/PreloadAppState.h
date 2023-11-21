@@ -5,7 +5,8 @@
 
 class PreloadAppState : public State {
 public:
-    explicit PreloadAppState(StateStack&);
+    PreloadAppState(StateStack &stackStack, Context context);
+
     bool handleEvent(sf::Event) override;
     bool update(TimePointMs) override;
     bool draw() override;

@@ -1,6 +1,6 @@
 #include "PreloadAppState.h"
 
-PreloadAppState::PreloadAppState(StateStack& stackStack) : State(stackStack) {}
+PreloadAppState::PreloadAppState(StateStack& stackStack, Context context) : State(stackStack, context) {}
 
 bool PreloadAppState::handleEvent(sf::Event) {
     return true;

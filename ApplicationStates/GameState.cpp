@@ -1,6 +1,6 @@
 #include "GameState.h"
 
-GameState::GameState(StateStack& stateStack) : State(stateStack) {}
+GameState::GameState(StateStack& stateStack, Context context) : State(stateStack, context) {}
 
 bool GameState::handleEvent(sf::Event) {
     return true;
