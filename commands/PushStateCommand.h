@@ -7,7 +7,7 @@
 
 class PushStateCommand : public Command {
 public:
-    PushStateCommand(std::vector<std::unique_ptr<State>>&, std::function<std::unique_ptr<State>()>&);
+    PushStateCommand(std::vector<std::unique_ptr<State>>&, std::function<std::unique_ptr<State>()>&&);
     void execute() override;
 
 private:

@@ -64,7 +64,9 @@ void StateStack::executePendingSCommands() {
 }
 
 void StateStack::pushState(StateName stateName) {
-    pendingCommands.emplace_back(new PushStateCommand(stack, stateFactory[stateName]));
+    pendingCommands.emplace_back(new PushStateCommand(stack, std::function<std::unique_ptr<State>()> ([this, stateName] () {
+        return this->createState(stateName);
+    })));
 }
 
 void StateStack::popState() {

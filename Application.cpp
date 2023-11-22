@@ -61,11 +61,5 @@ void Application::registerStates() {
 
 void Application::initializeStates() {
     stateStack.pushState(StateName::PreloadApp);
-    stateStack.pushState(StateName::PreloadApp);
-    stateStack.pushState(StateName::PreloadApp);
-    stateStack.pushState(StateName::PreloadApp);
-    stateStack.pushState(StateName::PreloadApp);
-    stateStack.pushState(StateName::PreloadApp);
-    stateStack.pushState(StateName::PreloadApp);
 }
 
