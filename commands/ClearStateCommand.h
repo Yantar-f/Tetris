@@ -1,12 +1,16 @@
 #ifndef TETRIS_CLEARSTATECOMMAND_H
 #define TETRIS_CLEARSTATECOMMAND_H
 
-#include "StateStackCommand.h"
+#include "Command.h"
+#include "../states/State.h"
 
-class ClearStateCommand : public StateStackCommand {
+class ClearStateCommand : public Command {
 public:
-    explicit ClearStateCommand(StateStack&);
+    explicit ClearStateCommand(std::vector<std::unique_ptr<State>>&);
     void execute() override;
+
+private:
+    std::vector<std::unique_ptr<State>>& stack;
 };
 
 

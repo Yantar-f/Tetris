@@ -1,10 +1,12 @@
 #include "PushStateCommand.h"
 
+#include <utility>
+
 void PushStateCommand::execute() {
-    stateStack.stack.emplace_back(stateStack.createState(stateName));
+    stack.emplace_back(createState());
 }
 
-PushStateCommand::PushStateCommand(StateStack& stateStack, StateName stateName) :
-    StateStackCommand(stateStack),
-    stateName(stateName) {}
+PushStateCommand::PushStateCommand(std::vector<std::unique_ptr<State>>& stack, std::function<std::unique_ptr<State>()>& createState) :
+    stack(stack),
+    createState(createState) {}
 

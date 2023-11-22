@@ -1,7 +1,7 @@
 #include "PopStateCommand.h"
 
-PopStateCommand::PopStateCommand(StateStack& stateStack) : StateStackCommand(stateStack) {}
+PopStateCommand::PopStateCommand(std::vector<std::unique_ptr<State>>& stack) : stack(stack) {}
 
 void PopStateCommand::execute() {
-    stateStack.stack.pop_back();
+    stack.pop_back();
 }

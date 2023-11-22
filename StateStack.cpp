@@ -27,10 +27,12 @@ void StateStack::draw() {
     context.renderWindow.clear();
     auto it = stack.rbegin();
 
+    if (it == stack.rend()) return;
+
     while (it != stack.rend() && (*it)->isTransparent()) ++it;
-    while (it <= stack.rbegin()) {
+    while (it >= stack.rbegin()) {
         (*it)->draw();
-        ++it;
+        --it;
     }
 
     context.renderWindow.display();
@@ -62,15 +64,18 @@ void StateStack::executePendingSCommands() {
 }
 
 void StateStack::pushState(StateName stateName) {
-    pendingCommands.emplace_back(new PushStateCommand(*this, stateName));
+    pendingCommands.emplace_back(new PushStateCommand(stack, stateFactory[stateName]));
 }
 
 void StateStack::popState() {
-    pendingCommands.emplace_back(new PopStateCommand(*this));
+    pendingCommands.emplace_back(new PopStateCommand(stack));
 }
 
 void StateStack::clearStates() {
-    pendingCommands.emplace_back(new ClearStateCommand(*this));
+    pendingCommands.emplace_back(new ClearStateCommand(stack));
 }
 
-StateStack::StateStack(Context context) : context(context) {}
+StateStack::StateStack(Context context) : context(context) {
+    stack.reserve(20);
+    pendingCommands.reserve(40);
+}

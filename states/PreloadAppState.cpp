@@ -15,5 +15,5 @@ bool PreloadAppState::draw() {
 }
 
 bool PreloadAppState::isTransparent() {
-    return true;
+    return false;
 }

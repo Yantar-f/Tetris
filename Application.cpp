@@ -34,6 +34,7 @@ void Application::processEvents() {
     while (mainWindow.pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
             LOG_INFO("Window close request");
+            stateStack.clearStates();
             mainWindow.close();
             return;
         }
@@ -59,6 +60,12 @@ void Application::registerStates() {
 }
 
 void Application::initializeStates() {
+    stateStack.pushState(StateName::PreloadApp);
+    stateStack.pushState(StateName::PreloadApp);
+    stateStack.pushState(StateName::PreloadApp);
+    stateStack.pushState(StateName::PreloadApp);
+    stateStack.pushState(StateName::PreloadApp);
+    stateStack.pushState(StateName::PreloadApp);
     stateStack.pushState(StateName::PreloadApp);
 }
 

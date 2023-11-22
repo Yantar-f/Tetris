@@ -4,15 +4,15 @@
 #include "Command.h"
 #include "../StateName.h"
 #include "../StateStack.h"
-#include "StateStackCommand.h"
 
-class PushStateCommand : public StateStackCommand {
+class PushStateCommand : public Command {
 public:
-    PushStateCommand(StateStack&, StateName);
+    PushStateCommand(std::vector<std::unique_ptr<State>>&, std::function<std::unique_ptr<State>()>&);
     void execute() override;
 
 private:
-    StateName stateName;
+    std::vector<std::unique_ptr<State>>& stack;
+    std::function<std::unique_ptr<State>()> createState;
 };
 
 

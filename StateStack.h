@@ -26,13 +26,8 @@ public:
     void registerState(StateName);
 
     void pushState(StateName);
-    friend class PushStateCommand;
-
     void popState();
-    friend class PopStateCommand;
-
     void clearStates();
-    friend class ClearStateCommand;
 
 private:
     std::unique_ptr<State> createState(StateName);
