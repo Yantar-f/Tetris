@@ -4,7 +4,7 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include "../StateStack.h"
-#include "../StateType.h"
+#include "../StateName.h"
 #include "../CommonDefinitions.h"
 #include "../Context.h"
 
@@ -20,7 +20,7 @@ public:
     virtual bool isTransparent() = 0;
 
 protected:
-    void requestStackPush(StateType);
+    void requestStackPush(StateName);
     void requestStackPop();
     void requestStateClear();
 

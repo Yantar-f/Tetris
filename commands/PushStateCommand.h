@@ -2,17 +2,17 @@
 #define TETRIS_PUSHSTATECOMMAND_H
 
 #include "Command.h"
-#include "../StateType.h"
+#include "../StateName.h"
 #include "../StateStack.h"
 #include "StateStackCommand.h"
 
 class PushStateCommand : public StateStackCommand {
 public:
-    PushStateCommand(StateStack&, StateType);
+    PushStateCommand(StateStack&, StateName);
     void execute() override;
 
 private:
-    StateType stateType;
+    StateName stateName;
 };
 
 

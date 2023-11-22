@@ -40,13 +40,13 @@ bool StateStack::isEmpty() const {
     return stack.empty();
 }
 
-std::unique_ptr<State> StateStack::createState(StateType stateType) {
-    LOG_INFO(std::string("Creating state: id = ").append(std::to_string(stateType)));
+std::unique_ptr<State> StateStack::createState(StateName stateName) {
+    LOG_INFO(std::string("Creating state: id = ").append(std::to_string(stateName)));
 
-    auto it = stateFactory.find(stateType);
+    auto it = stateFactory.find(stateName);
 
     if (it == stateFactory.end()) {
-        LOG_FATAL(std::string("State not found: id = ").append(std::to_string(stateType)));
+        LOG_FATAL(std::string("State not found: id = ").append(std::to_string(stateName)));
         TERMINATE(EXIT_FAILURE);
     }
 
@@ -61,8 +61,8 @@ void StateStack::executePendingSCommands() {
     pendingCommands.clear();
 }
 
-void StateStack::pushState(StateType stateType) {
-    pendingCommands.emplace_back(new PushStateCommand(*this, stateType));
+void StateStack::pushState(StateName stateName) {
+    pendingCommands.emplace_back(new PushStateCommand(*this, stateName));
 }
 
 void StateStack::popState() {

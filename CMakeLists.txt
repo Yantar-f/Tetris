@@ -15,7 +15,7 @@ add_executable(Tetris main.cpp
         log/Logger.h
         FatalTerminationManager.cpp
         FatalTerminationManager.h
-        StateType.h
+        StateName.h
         commands/PushStateCommand.cpp
         commands/StateStackCommand.cpp
         commands/PopStateCommand.cpp

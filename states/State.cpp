@@ -2,7 +2,7 @@
 
 State::State(StateStack& stateStack, Context context) : stateStack(stateStack), context(context) {}
 
-void State::requestStackPush(StateType stateType) {
+void State::requestStackPush(StateName stateType) {
     stateStack.pushState(stateType);
 }
 

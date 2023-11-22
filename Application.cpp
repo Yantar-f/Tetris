@@ -52,13 +52,13 @@ void Application::render() {
 
 
 void Application::registerStates() {
-    stateStack.registerState<PreloadAppState>(StateType::PreloadApp);
-    stateStack.registerState<MainMenuState>(StateType::MainMenu);
-    stateStack.registerState<GameState>(StateType::Game);
-    stateStack.registerState<GamePauseState>(StateType::GamePause);
+    stateStack.registerState<PreloadAppState>(StateName::PreloadApp);
+    stateStack.registerState<MainMenuState>(StateName::MainMenu);
+    stateStack.registerState<GameState>(StateName::Game);
+    stateStack.registerState<GamePauseState>(StateName::GamePause);
 }
 
 void Application::initializeStates() {
-    stateStack.pushState(StateType::PreloadApp);
+    stateStack.pushState(StateName::PreloadApp);
 }
 
