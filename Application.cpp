@@ -1,16 +1,16 @@
 #include "Application.h"
 #include <chrono>
 #include "Log/Logger.h"
-#include "ApplicationStates/MainMenuState.h"
-#include "ApplicationStates/PreloadAppState.h"
-#include "ApplicationStates/GameState.h"
-#include "ApplicationStates/GamePauseState.h"
+#include "states/PreloadAppState.h"
+#include "states/MainMenuState.h"
+#include "states/GameState.h"
+#include "states/GamePauseState.h"
 
 using namespace std::chrono_literals;
 
 Application::Application() :
     mainWindow(sf::VideoMode(DEFAULT_WINDOW_WIDTH,DEFAULT_WINDOW_HEIGHT), DEFAULT_WINDOW_TITLE, sf::Style::Close),
-    stateStack(Context(mainWindow)){}
+    stateStack(Context(mainWindow)) {}
 
 void Application::run() {
     registerStates();

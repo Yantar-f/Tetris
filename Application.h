@@ -2,7 +2,7 @@
 #define TETRIS_APPLICATION_H
 
 #include <SFML\Graphics.hpp>
-#include "ApplicationStates/StateStack.h"
+#include "StateStack.h"
 #include "CommonDefinitions.h"
 
 class Application {

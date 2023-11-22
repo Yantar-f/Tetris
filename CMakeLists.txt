@@ -6,28 +6,28 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(Tetris main.cpp
         Application.cpp
         Application.h
-        ApplicationStates/StateStack.cpp
-        ApplicationStates/StateStack.h
-        ApplicationStates/State.cpp
-        ApplicationStates/State.h
+        StateStack.cpp
+        StateStack.h
+        states/State.cpp
+        states/State.h
         CommonDefinitions.h
-        Log/Logger.cpp
-        Log/Logger.h
+        log/Logger.cpp
+        log/Logger.h
         FatalTerminationManager.cpp
         FatalTerminationManager.h
-        ApplicationStates/StateType.h
-        Commands/PushStateCommand.cpp
-        Commands/StateStackCommand.cpp
-        Commands/PopStateCommand.cpp
-        Commands/ClearStateCommand.cpp
-        ApplicationStates/MainMenuState.cpp
-        ApplicationStates/MainMenuState.h
-        ApplicationStates/PreloadAppState.cpp
-        ApplicationStates/PreloadAppState.h
-        ApplicationStates/GameState.cpp
-        ApplicationStates/GameState.h
-        ApplicationStates/GamePauseState.cpp
-        ApplicationStates/GamePauseState.h
+        StateType.h
+        commands/PushStateCommand.cpp
+        commands/StateStackCommand.cpp
+        commands/PopStateCommand.cpp
+        commands/ClearStateCommand.cpp
+        states/MainMenuState.cpp
+        states/MainMenuState.h
+        states/PreloadAppState.cpp
+        states/PreloadAppState.h
+        states/GameState.cpp
+        states/GameState.h
+        states/GamePauseState.cpp
+        states/GamePauseState.h
         Context.cpp
 )
 
