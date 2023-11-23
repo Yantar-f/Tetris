@@ -12,7 +12,7 @@ void StateStack::handleEvent(sf::Event event) {
         if (!(*it)->handleEvent(event)) break;
     }
 
-    executePendingSCommands();
+    executePendingCommands();
 }
 
 void StateStack::update(TimePointMs timePoint) {
@@ -20,7 +20,7 @@ void StateStack::update(TimePointMs timePoint) {
         if (!(*it)->update(timePoint)) break;
     }
 
-    executePendingSCommands();
+    executePendingCommands();
 }
 
 void StateStack::draw() {
@@ -55,7 +55,7 @@ std::unique_ptr<State> StateStack::createState(StateName stateName) {
     return it->second();
 }
 
-void StateStack::executePendingSCommands() {
+void StateStack::executePendingCommands() {
     for (auto& pendingCommand : pendingCommands) {
         pendingCommand->execute();
     }

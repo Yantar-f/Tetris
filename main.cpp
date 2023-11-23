@@ -1,5 +1,4 @@
 #include "Application.h"
-#include "log/Logger.h"
 #include "FatalTerminationManager.h"
 
 int main() {

@@ -31,7 +31,7 @@ public:
 
 private:
     std::unique_ptr<State> createState(StateName);
-    void executePendingSCommands();
+    void executePendingCommands();
 
 private:
     Context context;
