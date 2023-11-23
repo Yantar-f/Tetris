@@ -42,6 +42,7 @@ bool PreloadAppState::update(TimePointMs timePoint) {
         isIncrement = true;
     } else if (preloadText.getFillColor().a == 255) {
         isIncrement = false;
+        prevTick += 500ms;
     }
 
     if (isIncrement) {
