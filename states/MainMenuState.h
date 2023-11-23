@@ -6,7 +6,7 @@
 
 class MainMenuState : public State {
 public:
-    explicit MainMenuState(StateStack&, Context);
+    MainMenuState(StateStack&, Context);
     bool handleEvent(sf::Event) override;
     bool update(TimePointMs) override;
     bool draw() override;

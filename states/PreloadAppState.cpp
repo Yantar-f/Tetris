@@ -1,8 +1,5 @@
-#include <iostream>
 #include "PreloadAppState.h"
 #include "../FatalTerminationManager.h"
-
-
 
 PreloadAppState::PreloadAppState(StateStack& stackStack, Context context) : State(stackStack, context), color(sf::Color::Cyan) {
     if (!font.loadFromFile("../resources/fonts/arial.ttf")) {
@@ -25,17 +22,16 @@ PreloadAppState::PreloadAppState(StateStack& stackStack, Context context) : Stat
 }
 
 bool PreloadAppState::handleEvent(sf::Event event) {
-    /*
     if (event.type == sf::Event::KeyPressed) {
         requestStackPop();
         requestStackPush(StateName::MainMenu);
     }
-*/
-    return true;
+
+    return false;
 }
 
 bool PreloadAppState::update(TimePointMs timePoint) {
-    if (timePoint - prevTick < tickDuration) return true;
+    if (timePoint - prevTick < tickDuration) return false;
     prevTick = timePoint;
 
     if (preloadText.getFillColor().a == 0) {
@@ -55,12 +51,12 @@ bool PreloadAppState::update(TimePointMs timePoint) {
 
     preloadText.setFillColor(color);
 
-    return true;
+    return false;
 }
 
 bool PreloadAppState::draw() {
     context.renderWindow.draw(preloadText);
-    return true;
+    return false;
 }
 
 bool PreloadAppState::isTransparent() {

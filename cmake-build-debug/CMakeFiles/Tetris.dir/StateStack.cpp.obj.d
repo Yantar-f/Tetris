@@ -279,7 +279,7 @@ CMakeFiles/Tetris.dir/StateStack.cpp.obj: \
  C:/SFML-2.6/include/SFML/Graphics/VertexBuffer.hpp \
  C:\Projets\Tetris\CommonDefinitions.h C:\Projets\Tetris\StateName.h \
  C:\Projets\Tetris\Commands/Command.h C:\Projets\Tetris\Log/Logger.h \
- C:\Projets\Tetris\Context.h C:\Projets\Tetris\FatalTerminationManager.h \
+ C:\Projets\Tetris\Context.h \
  C:\Projets\Tetris\Commands/ClearStateCommand.h \
  C:\Projets\Tetris\Commands/Command.h C:/Projets/Tetris/states/State.h \
  C:\Projets\Tetris\Commands/PopStateCommand.h \

@@ -30,7 +30,6 @@ public:
     void clearStates();
 
 private:
-    std::unique_ptr<State> createState(StateName);
     void executePendingCommands();
 
 private:

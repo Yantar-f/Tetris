@@ -1,7 +1,5 @@
 #include <unordered_map>
 #include "StateStack.h"
-#include "Log/Logger.h"
-#include "FatalTerminationManager.h"
 #include "Commands/ClearStateCommand.h"
 #include "Commands/PopStateCommand.h"
 #include "Commands/PushStateCommand.h"
@@ -30,29 +28,19 @@ void StateStack::draw() {
     if (it == stack.rend()) return;
 
     while (it != stack.rend() && (*it)->isTransparent()) ++it;
-    while (it >= stack.rbegin()) {
+
+    if (it == stack.rend()) --it;
+
+    do {
         (*it)->draw();
         --it;
-    }
+    } while (it >= stack.rbegin());
 
     context.renderWindow.display();
 }
 
 bool StateStack::isEmpty() const {
     return stack.empty();
-}
-
-std::unique_ptr<State> StateStack::createState(StateName stateName) {
-    LOG_INFO(std::string("Creating state: id = ").append(std::to_string(stateName)));
-
-    auto it = stateFactory.find(stateName);
-
-    if (it == stateFactory.end()) {
-        LOG_FATAL(std::string("State not found: id = ").append(std::to_string(stateName)));
-        TERMINATE(EXIT_FAILURE);
-    }
-
-    return it->second();
 }
 
 void StateStack::executePendingCommands() {
@@ -64,9 +52,7 @@ void StateStack::executePendingCommands() {
 }
 
 void StateStack::pushState(StateName stateName) {
-    pendingCommands.emplace_back(new PushStateCommand(stack, std::function<std::unique_ptr<State>()> ([this, stateName] () {
-        return this->createState(stateName);
-    })));
+    pendingCommands.emplace_back(new PushStateCommand(stateName, stack, stateFactory));
 }
 
 void StateStack::popState() {

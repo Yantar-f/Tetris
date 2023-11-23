@@ -281,6 +281,6 @@ CMakeFiles/Tetris.dir/commands/PushStateCommand.cpp.obj: \
  C:/SFML-2.6/include/SFML/Graphics/VertexBuffer.hpp \
  C:/Projets/Tetris/CommonDefinitions.h C:/Projets/Tetris/StateName.h \
  C:/Projets/Tetris/Commands/Command.h C:/Projets/Tetris/Log/Logger.h \
- C:/Projets/Tetris/Context.h \
+ C:/Projets/Tetris/Context.h C:/Projets/Tetris/FatalTerminationManager.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/utility \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h

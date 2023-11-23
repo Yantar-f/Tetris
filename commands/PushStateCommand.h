@@ -7,12 +7,18 @@
 
 class PushStateCommand : public Command {
 public:
-    PushStateCommand(std::vector<std::unique_ptr<State>>&, std::function<std::unique_ptr<State>()>&&);
+    PushStateCommand(
+        StateName,
+        std::vector<std::unique_ptr<State>>&,
+        std::unordered_map<StateName, std::function<std::unique_ptr<State>()>>&
+    );
+
     void execute() override;
 
 private:
+    StateName stateName;
     std::vector<std::unique_ptr<State>>& stack;
-    std::function<std::unique_ptr<State>()> createState;
+    std::unordered_map<StateName, std::function<std::unique_ptr<State>()>>& stateFactory;
 };
 
 
