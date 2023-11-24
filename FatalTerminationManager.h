@@ -10,6 +10,5 @@ public:
 };
 
 #define TERMINATE(statusCode) FatalTerminationManager::terminateApp(statusCode)
-#define LOGGED_TERMINATE(statusCode, message) (LOG_FATAL(message), FatalTerminationManager::terminateApp(statusCode))
 
 #endif //TETRIS_FATALTERMINATIONMANAGER_H
