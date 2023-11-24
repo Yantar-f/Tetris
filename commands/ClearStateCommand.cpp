@@ -1,6 +1,7 @@
 #include "ClearStateCommand.h"
 
 void ClearStateCommand::execute() {
+    LOG_INFO("Empty entire state stack");
     stack.clear();
 }
 

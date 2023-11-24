@@ -2,7 +2,7 @@
 #define TETRIS_FATALTERMINATIONMANAGER_H
 
 #include <string>
-#include "Log/Logger.h"
+#include "log/Logger.h"
 
 class FatalTerminationManager {
 public:
