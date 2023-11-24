@@ -934,7 +934,6 @@ CMakeFiles/Tetris.dir/StateStack.cpp.obj: C:/Projets/Tetris/StateStack.cpp \
   C:/Projets/Tetris/commands/Command.h \
   C:/Projets/Tetris/log/Logger.h \
   C:/Projets/Tetris/Context.h \
-  C:/Projets/Tetris/FatalTerminationManager.h \
   C:/Projets/Tetris/commands/ClearStateCommand.h \
   C:/Projets/Tetris/commands/Command.h \
   C:/Projets/Tetris/states/State.h \

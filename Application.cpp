@@ -60,6 +60,7 @@ void Application::registerStates() {
 }
 
 void Application::initializeStates() {
+    stateStack.pushState(StateName::MainMenu);
     stateStack.pushState(StateName::PreloadApp);
 }
 

@@ -22,11 +22,7 @@ PreloadAppState::PreloadAppState(StateStack& stackStack, Context context) : Stat
 }
 
 bool PreloadAppState::handleEvent(sf::Event event) {
-    if (event.type == sf::Event::KeyPressed) {
-        requestStackPop();
-        requestStackPush(StateName::MainMenu);
-    }
-
+    if (event.type == sf::Event::KeyPressed) requestStackPop();
     return false;
 }
 
