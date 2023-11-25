@@ -10,6 +10,7 @@ class Application {
 public:
     Application();
     Application(sf::VideoMode, const std::string& windowTitle, unsigned int windowStyle, const char* resourcePath);
+
     void run();
 
 private:

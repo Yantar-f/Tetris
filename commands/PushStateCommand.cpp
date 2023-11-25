@@ -1,6 +1,14 @@
 #include "PushStateCommand.h"
 #include "../FatalTerminationManager.h"
 
+PushStateCommand::PushStateCommand(
+        StateName stateName,
+        std::vector<std::unique_ptr<State>>& stack,
+        std::unordered_map<StateName, std::function<std::unique_ptr<State>()>>& stateFactory) :
+        stateName(stateName),
+        stack(stack),
+        stateFactory(stateFactory) {}
+
 void PushStateCommand::execute() {
     LOG_INFO(std::string("Creating state: id = ").append(std::to_string(stateName)));
 
@@ -13,12 +21,4 @@ void PushStateCommand::execute() {
 
     stack.emplace_back(it->second());
 }
-
-PushStateCommand::PushStateCommand(
-    StateName stateName,
-    std::vector<std::unique_ptr<State>>& stack,
-    std::unordered_map<StateName, std::function<std::unique_ptr<State>()>>& stateFactory) :
-    stateName(stateName),
-    stack(stack),
-    stateFactory(stateFactory) {}
 

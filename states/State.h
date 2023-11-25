@@ -15,6 +15,7 @@ class State {
 public:
     explicit State(StateStack&, Context&);
     virtual ~State() = default;
+
     virtual bool handleEvent(sf::Event) = 0;
     virtual bool update(TimePointMs) = 0;
     virtual bool draw() = 0;

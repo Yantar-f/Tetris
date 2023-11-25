@@ -15,7 +15,7 @@ Application::Application() :
                 DEFAULT_WINDOW_TITLE,
                 DEFAULT_WINDOW_STYLE,
                 DEFAULT_RESOURCE_PATH),
-    stateStack(context) {
+        stateStack(context) {
     LOG_INFO("Application initiated with default parameters");
 }
 
@@ -74,5 +74,3 @@ void Application::initializeStates() {
     stateStack.pushState(StateName::MainMenu);
     stateStack.pushState(StateName::PreloadApp);
 }
-
-

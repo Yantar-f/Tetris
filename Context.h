@@ -6,6 +6,8 @@
 class Context {
 public:
     Context(sf::VideoMode, const std::string& windowTitle, sf::Uint32 windowStyle, const char* resourcePath);
+
+public:
     sf::RenderWindow renderWindow;
     std::string resourcePath;
 };
