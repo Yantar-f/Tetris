@@ -2,7 +2,7 @@
 #include "../FatalTerminationManager.h"
 
 PreloadAppState::PreloadAppState(StateStack& stackStack, Context& context) : State(stackStack, context), color(sf::Color::Cyan) {
-    if (!font.loadFromFile("../resources/fonts/arial.ttf")) {
+    if (!font.loadFromFile(context.resourcePath + "/fonts/arial.ttf")) {
         LOG_FATAL("Loading font error");
         TERMINATE(EXIT_FAILURE);
     }
@@ -12,13 +12,18 @@ PreloadAppState::PreloadAppState(StateStack& stackStack, Context& context) : Sta
     preloadText.setString("Press any key to continue");
     preloadText.setFont(font);
     preloadText.setCharacterSize(20);
+    preloadText.setFillColor(color);
+    preloadText.setOutlineColor(sf::Color::Transparent);
 
     sf::FloatRect textRect = preloadText.getLocalBounds();
 
-    preloadText.setOrigin(textRect.left + textRect.width/2.0f,textRect.top  + textRect.height/2.0f);
-    preloadText.setFillColor(color);
-    preloadText.setOutlineColor(sf::Color::Transparent);
-    preloadText.setPosition(DEFAULT_WINDOW_WIDTH/2.f, DEFAULT_WINDOW_HEIGHT/2.f);
+    preloadText.setOrigin(
+        textRect.left + textRect.width/2.0f,
+        textRect.top  + textRect.height/2.0f);
+
+    preloadText.setPosition(
+        static_cast<float>(context.renderWindow.getSize().x)/2.f,
+        static_cast<float>(context.renderWindow.getSize().y)/2.f);
 }
 
 bool PreloadAppState::handleEvent(sf::Event event) {

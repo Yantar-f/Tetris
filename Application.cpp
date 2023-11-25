@@ -8,8 +8,18 @@
 
 using namespace std::chrono_literals;
 
-Application::Application(sf::VideoMode videoMode, const std::string& windowTitle, sf::Uint32 windowStyle) :
-    context(videoMode, windowTitle, windowStyle),
+Application::Application() :
+    context(
+        sf::VideoMode(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT),
+        DEFAULT_WINDOW_TITLE,
+        DEFAULT_WINDOW_STYLE,
+        DEFAULT_RESOURCE_PATH),
+    stateStack(context) {
+    LOG_INFO("Application initiated with default parameters");
+}
+
+Application::Application(sf::VideoMode videoMode, const std::string& windowTitle, sf::Uint32 windowStyle, const char* resourcePath) :
+    context(videoMode, windowTitle, windowStyle, resourcePath),
     stateStack(context) {}
 
 void Application::run() {
@@ -43,10 +53,10 @@ void Application::processEvents() {
     }
 }
 
+
 void Application::update() {
     stateStack.update(TIME_POINT);
 }
-
 
 void Application::render() {
     stateStack.draw();

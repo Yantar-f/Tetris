@@ -7,7 +7,8 @@
 
 class Application {
 public:
-    Application(sf::VideoMode, const std::string& windowTitle, unsigned int windowStyle);
+    Application();
+    Application(sf::VideoMode, const std::string& windowTitle, unsigned int windowStyle, const char* resourcePath);
     void run();
 
 private:
