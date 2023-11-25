@@ -1,10 +1,11 @@
 #ifndef TETRIS_POPSTATECOMMAND_H
 #define TETRIS_POPSTATECOMMAND_H
 
-#include <memory>
-#include <vector>
 #include "Command.h"
 #include "../states/State.h"
+
+#include <memory>
+#include <vector>
 
 class PopStateCommand : public Command {
 public:

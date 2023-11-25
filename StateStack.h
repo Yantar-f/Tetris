@@ -1,16 +1,17 @@
 #ifndef TETRIS_STATESTACK_H
 #define TETRIS_STATESTACK_H
 
-#include <memory>
-#include <vector>
-#include <functional>
-#include <unordered_map>
 #include "states/State.h"
 #include "CommonDefinitions.h"
 #include "StateName.h"
 #include "Commands/Command.h"
 #include "Log/Logger.h"
 #include "Context.h"
+
+#include <memory>
+#include <vector>
+#include <functional>
+#include <unordered_map>
 
 class State;
 

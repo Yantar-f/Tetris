@@ -1,12 +1,13 @@
 #ifndef TETRIS_STATE_H
 #define TETRIS_STATE_H
 
-#include <SFML/Window/Event.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
 #include "../StateStack.h"
 #include "../StateName.h"
 #include "../CommonDefinitions.h"
 #include "../Context.h"
+
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/Event.hpp>
 
 class StateStack;
 

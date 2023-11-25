@@ -1,9 +1,10 @@
 #ifndef TETRIS_APPLICATION_H
 #define TETRIS_APPLICATION_H
 
-#include <SFML\Graphics.hpp>
 #include "StateStack.h"
 #include "CommonDefinitions.h"
+
+#include <SFML\Graphics.hpp>
 
 class Application {
 public:

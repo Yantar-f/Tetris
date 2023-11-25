@@ -1,19 +1,20 @@
 #include "Application.h"
-#include <chrono>
 #include "Log/Logger.h"
 #include "states/PreloadAppState.h"
 #include "states/MainMenuState.h"
-#include "states/GameState.h"
 #include "states/GamePauseState.h"
+#include "states/GameState.h"
+
+#include <chrono>
 
 using namespace std::chrono_literals;
 
 Application::Application() :
-    context(
-        sf::VideoMode(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT),
-        DEFAULT_WINDOW_TITLE,
-        DEFAULT_WINDOW_STYLE,
-        DEFAULT_RESOURCE_PATH),
+        context(
+                sf::VideoMode(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT),
+                DEFAULT_WINDOW_TITLE,
+                DEFAULT_WINDOW_STYLE,
+                DEFAULT_RESOURCE_PATH),
     stateStack(context) {
     LOG_INFO("Application initiated with default parameters");
 }

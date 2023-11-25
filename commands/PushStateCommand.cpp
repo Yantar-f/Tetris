@@ -1,8 +1,6 @@
 #include "PushStateCommand.h"
 #include "../FatalTerminationManager.h"
 
-#include <utility>
-
 void PushStateCommand::execute() {
     LOG_INFO(std::string("Creating state: id = ").append(std::to_string(stateName)));
 

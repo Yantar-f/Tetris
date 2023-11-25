@@ -1,8 +1,8 @@
-#include <unordered_map>
 #include "StateStack.h"
 #include "Commands/ClearStateCommand.h"
 #include "Commands/PopStateCommand.h"
 #include "Commands/PushStateCommand.h"
+
 #include "SFML/Graphics.hpp"
 
 StateStack::StateStack(Context& context) : context(context) {

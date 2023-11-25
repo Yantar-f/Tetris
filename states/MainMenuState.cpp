@@ -1,4 +1,3 @@
-#include <iostream>
 #include "MainMenuState.h"
 
 MainMenuState::MainMenuState(StateStack& stateStack, Context& context) : State(stateStack, context) {}
