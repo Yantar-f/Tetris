@@ -5,6 +5,11 @@
 #include "Commands/PushStateCommand.h"
 #include "SFML/Graphics.hpp"
 
+StateStack::StateStack(Context& context) : context(context) {
+    stack.reserve(20);
+    pendingCommands.reserve(40);
+}
+
 void StateStack::handleEvent(sf::Event event) {
     for (auto it = stack.rbegin(); it != stack.rend(); ++it) {
         if (!(*it)->handleEvent(event)) break;
@@ -61,9 +66,4 @@ void StateStack::popState() {
 
 void StateStack::clearStates() {
     pendingCommands.emplace_back(new ClearStateCommand(stack));
-}
-
-StateStack::StateStack(Context context) : context(context) {
-    stack.reserve(20);
-    pendingCommands.reserve(40);
 }

@@ -6,7 +6,7 @@
 
 class GamePauseState : public State {
 public:
-    GamePauseState(StateStack &stateStack, Context context);
+    GamePauseState(StateStack &stateStack, Context& context);
 
     bool handleEvent(sf::Event) override;
     bool update(TimePointMs) override;

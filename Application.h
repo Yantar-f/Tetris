@@ -7,7 +7,7 @@
 
 class Application {
 public:
-    Application();
+    Application(sf::VideoMode, const std::string& windowTitle, unsigned int windowStyle);
     void run();
 
 private:
@@ -17,8 +17,8 @@ private:
     void update();
     void render();
 
-    sf::RenderWindow mainWindow;
     StateStack stateStack;
+    Context context;
 };
 
 

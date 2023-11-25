@@ -1,6 +1,7 @@
+#include <iostream>
 #include "MainMenuState.h"
 
-MainMenuState::MainMenuState(StateStack& stateStack, Context context) : State(stateStack, context) {}
+MainMenuState::MainMenuState(StateStack& stateStack, Context& context) : State(stateStack, context) {}
 
 bool MainMenuState::handleEvent(sf::Event) {
     return true;

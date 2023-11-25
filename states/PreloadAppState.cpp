@@ -1,7 +1,7 @@
 #include "PreloadAppState.h"
 #include "../FatalTerminationManager.h"
 
-PreloadAppState::PreloadAppState(StateStack& stackStack, Context context) : State(stackStack, context), color(sf::Color::Cyan) {
+PreloadAppState::PreloadAppState(StateStack& stackStack, Context& context) : State(stackStack, context), color(sf::Color::Cyan) {
     if (!font.loadFromFile("../resources/fonts/arial.ttf")) {
         LOG_FATAL("Loading font error");
         TERMINATE(EXIT_FAILURE);

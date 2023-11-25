@@ -16,7 +16,7 @@ class State;
 
 class StateStack {
 public:
-    explicit StateStack(Context);
+    explicit StateStack(Context&);
     void handleEvent(sf::Event);
     void update(TimePointMs);
     void draw();
@@ -33,7 +33,7 @@ private:
     void executePendingCommands();
 
 private:
-    Context context;
+    Context& context;
     std::vector<std::unique_ptr<State>> stack;
     std::vector<std::unique_ptr<Command>> pendingCommands;
     std::unordered_map<StateName, std::function<std::unique_ptr<State>()>> stateFactory;

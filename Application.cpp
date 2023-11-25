@@ -8,22 +8,22 @@
 
 using namespace std::chrono_literals;
 
-Application::Application() :
-    mainWindow(sf::VideoMode(DEFAULT_WINDOW_WIDTH,DEFAULT_WINDOW_HEIGHT), DEFAULT_WINDOW_TITLE, sf::Style::Close),
-    stateStack(Context(mainWindow)) {}
+Application::Application(sf::VideoMode videoMode, const std::string& windowTitle, sf::Uint32 windowStyle) :
+    context(videoMode, windowTitle, windowStyle),
+    stateStack(context) {}
 
 void Application::run() {
     registerStates();
     initializeStates();
 
-    while (mainWindow.isOpen()) {
+    while (context.renderWindow.isOpen()) {
         processEvents();
         update();
         render();
 
         if (stateStack.isEmpty()) {
             LOG_INFO("StateStack is empty");
-            mainWindow.close();
+            context.renderWindow.close();
         }
     }
 }
@@ -31,11 +31,11 @@ void Application::run() {
 void Application::processEvents() {
     sf::Event event {};
 
-    while (mainWindow.pollEvent(event)) {
+    while (context.renderWindow.pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
             LOG_INFO("Window close request");
             stateStack.clearStates();
-            mainWindow.close();
+            context.renderWindow.close();
             return;
         }
 
@@ -47,10 +47,10 @@ void Application::update() {
     stateStack.update(TIME_POINT);
 }
 
+
 void Application::render() {
     stateStack.draw();
 }
-
 
 void Application::registerStates() {
     stateStack.registerState<PreloadAppState>(StateName::PreloadApp);
@@ -63,4 +63,5 @@ void Application::initializeStates() {
     stateStack.pushState(StateName::MainMenu);
     stateStack.pushState(StateName::PreloadApp);
 }
+
 

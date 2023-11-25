@@ -5,9 +5,8 @@
 
 class Context {
 public:
-    explicit Context(sf::RenderWindow&);
-    Context(Context&) = default;
-    sf::RenderWindow& renderWindow;
+    Context(sf::VideoMode, const sf::String& windowTitle, sf::Uint32 windowStyle);
+    sf::RenderWindow renderWindow;
 };
 
 
