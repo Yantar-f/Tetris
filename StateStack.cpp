@@ -3,8 +3,6 @@
 #include "Commands/PopStateCommand.h"
 #include "Commands/PushStateCommand.h"
 
-#include "SFML/Graphics.hpp"
-
 StateStack::StateStack(Context& context) : context(context) {
     stack.reserve(20);
     pendingCommands.reserve(40);
@@ -28,8 +26,8 @@ void StateStack::update(TimePointMs timePoint) {
 
 void StateStack::draw() {
     context.renderWindow.clear();
-    auto it = stack.rbegin();
 
+    auto it = stack.rbegin();
     if (it == stack.rend()) return;
 
     while (it != stack.rend() && (*it)->isTransparent()) ++it;

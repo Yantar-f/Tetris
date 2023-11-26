@@ -1,9 +1,9 @@
 #ifndef TETRIS_FATALTERMINATIONMANAGER_H
 #define TETRIS_FATALTERMINATIONMANAGER_H
 
-#include <string>
-
 #include "log/Logger.h"
+
+#include <string>
 
 class FatalTerminationManager {
 public:

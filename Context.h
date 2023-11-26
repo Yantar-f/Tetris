@@ -1,7 +1,8 @@
 #ifndef TETRIS_CONTEXT_H
 #define TETRIS_CONTEXT_H
 
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
+#include <string>
 
 class Context {
 public:

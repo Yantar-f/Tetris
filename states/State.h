@@ -6,9 +6,6 @@
 #include "../CommonDefinitions.h"
 #include "../Context.h"
 
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Window/Event.hpp>
-
 class StateStack;
 
 class State {
