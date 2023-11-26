@@ -3,7 +3,7 @@
 
 #include "states/State.h"
 #include "CommonDefinitions.h"
-#include "StateName.h"
+#include "states/StateName.h"
 #include "Commands/Command.h"
 #include "Log/Logger.h"
 #include "Context.h"

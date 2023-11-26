@@ -11,6 +11,7 @@ public:
 public:
     sf::RenderWindow renderWindow;
     std::string resourcePath;
+    sf::Font mainFont;
 };
 
 

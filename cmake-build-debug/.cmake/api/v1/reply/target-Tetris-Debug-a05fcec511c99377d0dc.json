@@ -471,7 +471,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "StateName.h",
+			"path" : "states/StateName.h",
 			"sourceGroupIndex" : 1
 		},
 		{

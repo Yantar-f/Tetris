@@ -2,7 +2,7 @@
 #define TETRIS_STATE_H
 
 #include "../StateStack.h"
-#include "../StateName.h"
+#include "StateName.h"
 #include "../CommonDefinitions.h"
 #include "../Context.h"
 

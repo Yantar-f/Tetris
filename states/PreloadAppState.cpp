@@ -1,17 +1,11 @@
 #include "PreloadAppState.h"
-#include "../FatalTerminationManager.h"
 
-PreloadAppState::PreloadAppState(StateStack& stackStack, Context& context) : State(stackStack, context), color(sf::Color::Cyan) {
-    if (!font.loadFromFile(context.resourcePath + "/fonts/arial.ttf")) {
-        LOG_FATAL("Loading font error");
-        TERMINATE(EXIT_FAILURE);
-    }
-
+PreloadAppState::PreloadAppState(StateStack& stackStack, Context& context) : State(stackStack, context), color(sf::Color::White) {
     color.a = 0;
 
     preloadText.setString("Press any key to continue");
-    preloadText.setFont(font);
-    preloadText.setCharacterSize(20);
+    preloadText.setFont(context.mainFont);
+    preloadText.setCharacterSize(static_cast<unsigned int>(context.renderWindow.getView().getSize().y)/30);
     preloadText.setFillColor(color);
     preloadText.setOutlineColor(sf::Color::Transparent);
 
@@ -22,8 +16,8 @@ PreloadAppState::PreloadAppState(StateStack& stackStack, Context& context) : Sta
         textRect.top  + textRect.height/2.0f);
 
     preloadText.setPosition(
-        static_cast<float>(context.renderWindow.getSize().x)/2.f,
-        static_cast<float>(context.renderWindow.getSize().y)/2.f);
+        context.renderWindow.getView().getSize().x/2.f,
+        context.renderWindow.getView().getSize().y/2.f);
 }
 
 bool PreloadAppState::handleEvent(sf::Event event) {

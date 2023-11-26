@@ -16,7 +16,6 @@ public:
 
 private:
     sf::Text preloadText;
-    sf::Font font;
     sf::Color color;
     TimePointMs prevTick { TIME_POINT };
     std::chrono::milliseconds tickDuration { 0ms };
