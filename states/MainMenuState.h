@@ -19,8 +19,8 @@ private:
     sf::Text exitOptionText;
     sf::Color selectionColor;
     sf::Color defaultColor;
-    TimePointMs previousTick = { TIME_POINT };
-    std::chrono::milliseconds  tickDuration  { 100ms };
+    TimePointMs previousTick { TIME_POINT };
+    std::chrono::milliseconds tickDuration { 100ms };
     bool isUp { false };
     bool isDown { false };
 };
