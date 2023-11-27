@@ -42,3 +42,5 @@
 7	1784	7228013075377758	CMakeFiles/Tetris.dir/states/MainMenuState.cpp.obj	319b8523e9b01995
 14	1817	7228013075709119	CMakeFiles/Tetris.dir/states/GamePauseState.cpp.obj	be5eea578ba7684a
 1817	2969	7228013087095574	Tetris.exe	ce7adb2f13a1a46a
+6	2595	7228059947369341	CMakeFiles/Tetris.dir/states/GamePauseState.cpp.obj	be5eea578ba7684a
+2595	4131	7228059962577195	Tetris.exe	ce7adb2f13a1a46a

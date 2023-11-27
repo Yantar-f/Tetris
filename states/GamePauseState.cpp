@@ -75,6 +75,10 @@ bool GamePauseState::handleEvent(sf::Event event) {
                     }
                 }break;
 
+                case sf::Keyboard::Escape: {
+                    stateStack.popState();
+                }break;
+
                 case sf::Keyboard::Up: {
                     isUp = true;
                 }break;
