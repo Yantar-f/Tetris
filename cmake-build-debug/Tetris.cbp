@@ -107,9 +107,6 @@
 		<Unit filename="C:/Projets/Tetris/FatalTerminationManager.h">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/StateName.h">
-			<Option target="Tetris"/>
-		</Unit>
 		<Unit filename="C:/Projets/Tetris/StateStack.cpp">
 			<Option target="Tetris"/>
 		</Unit>
@@ -171,6 +168,9 @@
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/states/State.h">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/states/StateName.h">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/CMakeLists.txt">

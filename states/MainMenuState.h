@@ -3,6 +3,8 @@
 
 #include "State.h"
 
+using namespace std::chrono_literals;
+
 class MainMenuState : public State {
 public:
     MainMenuState(StateStack&, Context&);
@@ -17,6 +19,10 @@ private:
     sf::Text exitOptionText;
     sf::Color selectionColor;
     sf::Color defaultColor;
+    TimePointMs previousTick = { TIME_POINT };
+    std::chrono::milliseconds  tickDuration  { 100ms };
+    bool isUp { false };
+    bool isDown { false };
 };
 
 

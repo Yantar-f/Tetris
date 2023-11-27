@@ -38,7 +38,13 @@ MainMenuState::MainMenuState(StateStack& stateStack, Context& context) :
             context.renderWindow.getView().getSize().y/2.f + textRect.height);
 }
 
-bool MainMenuState::handleEvent(sf::Event) {
+bool MainMenuState::handleEvent(sf::Event event) {
+    if (event.type == sf::Event::KeyPressed) {
+
+    } else if (event.type == sf::Event::KeyReleased) {
+
+    }
+
     return true;
 }
 
