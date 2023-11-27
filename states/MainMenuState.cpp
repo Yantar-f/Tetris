@@ -79,7 +79,7 @@ bool MainMenuState::handleEvent(sf::Event event) {
         default:;
     }
 
-    return true;
+    return false;
 }
 
 bool MainMenuState::update(TimePointMs timePoint) {
