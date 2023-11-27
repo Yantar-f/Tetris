@@ -2,8 +2,8 @@
 
 MainMenuState::MainMenuState(StateStack& stateStack, Context& context) :
         State(stateStack, context),
-        defaultColor(sf::Color::Cyan),
-        selectionColor(sf::Color::White),
+        defaultColor(sf::Color::White),
+        selectionColor(sf::Color::Cyan),
         selectedOption(Play) {
 
     options[Play].setString("Play");
@@ -43,6 +43,21 @@ bool MainMenuState::handleEvent(sf::Event event) {
     switch (event.type) {
         case sf::Event::KeyPressed: {
             switch (event.key.code) {
+                case sf::Keyboard::Enter: {
+                    switch (selectedOption) {
+                        case Play: {
+                            stateStack.popState();
+                            stateStack.pushState(StateName::Game);
+                        }break;
+
+                        case Exit: {
+                            stateStack.clearStates();
+                        }break;
+
+                        default:;
+                    }
+                }break;
+
                 case sf::Keyboard::Up: {
                     isUp = true;
                 }break;
