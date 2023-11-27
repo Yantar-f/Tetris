@@ -2,10 +2,11 @@
 #define TETRIS_MAINMENUSTATE_H
 
 #include "State.h"
+#include "MenuState.h"
 
 using namespace std::chrono_literals;
 
-class MainMenuState : public State {
+class MainMenuState : public MenuState {
 public:
     MainMenuState(StateStack&, Context&);
 
@@ -21,16 +22,6 @@ private:
 
         Count
     };
-
-private:
-    std::array<sf::Text, Options::Count> options;
-    sf::Color selectionColor;
-    sf::Color defaultColor;
-    TimePointMs previousTick { TIME_POINT };
-    std::chrono::milliseconds tickDuration { 100ms };
-    bool isUp { false };
-    bool isDown { false };
-    char selectedOption;
 };
 
 

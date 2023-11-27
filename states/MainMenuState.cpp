@@ -1,11 +1,7 @@
 #include "MainMenuState.h"
 
 MainMenuState::MainMenuState(StateStack& stateStack, Context& context) :
-        State(stateStack, context),
-        defaultColor(sf::Color::White),
-        selectionColor(sf::Color::Cyan),
-        selectedOption(Play) {
-
+        MenuState(stateStack, context, sf::Color::Cyan, sf::Color::White, 0, Count) {
     options[Play].setString("Play");
     options[Play].setFont(context.mainFont);
     options[Play].setFillColor(selectionColor);
@@ -88,20 +84,6 @@ bool MainMenuState::update(TimePointMs timePoint) {
 
         if (timePoint - previousTick < tickDuration) return false;
 
-        options[selectedOption].setFillColor(defaultColor);
-
-        if (selectedOption == Count - 1) {
-            selectedOption = 0;
-        } else {
-            ++selectedOption;
-        }
-
-        options[selectedOption].setFillColor(selectionColor);
-    }
-
-    if (isDown) {
-        isDown = false;
-
         if (timePoint - previousTick < tickDuration) return false;
 
         options[selectedOption].setFillColor(defaultColor);
@@ -110,6 +92,20 @@ bool MainMenuState::update(TimePointMs timePoint) {
             selectedOption = Count - 1;
         } else {
             --selectedOption;
+        }
+
+        options[selectedOption].setFillColor(selectionColor);
+    }
+
+    if (isDown) {
+        isDown = false;
+
+        options[selectedOption].setFillColor(defaultColor);
+
+        if (selectedOption == options.size() - 1) {
+            selectedOption = 0;
+        } else {
+            ++selectedOption;
         }
 
         options[selectedOption].setFillColor(selectionColor);

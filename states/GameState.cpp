@@ -2,7 +2,12 @@
 
 GameState::GameState(StateStack& stateStack, Context& context) : State(stateStack, context) {}
 
-bool GameState::handleEvent(sf::Event) {
+bool GameState::handleEvent(sf::Event event) {
+    if (event.type == sf::Event::KeyPressed) {
+        if (event.key.code == sf::Keyboard::Escape) {
+            stateStack.pushState(StateName::GamePause);
+        }
+    }
     return true;
 }
 

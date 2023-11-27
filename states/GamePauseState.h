@@ -1,9 +1,9 @@
 #ifndef TETRIS_GAMEPAUSESTATE_H
 #define TETRIS_GAMEPAUSESTATE_H
 
-#include "State.h"
+#include "MenuState.h"
 
-class GamePauseState : public State {
+class GamePauseState : public MenuState {
 public:
     GamePauseState(StateStack &stateStack, Context& context);
 
@@ -11,6 +11,15 @@ public:
     bool update(TimePointMs) override;
     bool draw() override;
     bool isTransparent() override;
+
+private:
+    enum Options {
+        Continue,
+        MainMenu,
+        Exit,
+
+        Count
+    };
 };
 
 
