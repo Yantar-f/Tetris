@@ -3,58 +3,112 @@
 MainMenuState::MainMenuState(StateStack& stateStack, Context& context) :
         State(stateStack, context),
         defaultColor(sf::Color::Cyan),
-        selectionColor(sf::Color::White) {
+        selectionColor(sf::Color::White),
+        selectedOption(Play) {
 
-    playOptionText.setString("Play");
-    playOptionText.setFont(context.mainFont);
-    playOptionText.setFillColor(selectionColor);
-    playOptionText.setOutlineColor(sf::Color::Transparent);
-    playOptionText.setCharacterSize(static_cast<unsigned int>(context.renderWindow.getView().getSize().y)/30);
+    options[Play].setString("Play");
+    options[Play].setFont(context.mainFont);
+    options[Play].setFillColor(selectionColor);
+    options[Play].setOutlineColor(sf::Color::Transparent);
+    options[Play].setCharacterSize(static_cast<unsigned int>(context.renderWindow.getView().getSize().y)/30);
 
-    exitOptionText.setString("Exit");
-    exitOptionText.setFont(context.mainFont);
-    exitOptionText.setFillColor(defaultColor);
-    exitOptionText.setOutlineColor(sf::Color::Transparent);
-    exitOptionText.setCharacterSize(static_cast<unsigned int>(context.renderWindow.getView().getSize().y)/30);
+    options[Exit].setString("Exit");
+    options[Exit].setFont(context.mainFont);
+    options[Exit].setFillColor(defaultColor);
+    options[Exit].setOutlineColor(sf::Color::Transparent);
+    options[Exit].setCharacterSize(static_cast<unsigned int>(context.renderWindow.getView().getSize().y)/30);
 
-    sf::FloatRect textRect = playOptionText.getLocalBounds();
+    sf::FloatRect textRect = options[Play].getLocalBounds();
 
-    playOptionText.setOrigin(
+    options[Play].setOrigin(
             textRect.left + textRect.width/2.0f,
             textRect.top  + textRect.height/2.0f);
 
-    playOptionText.setPosition(
+    options[Play].setPosition(
             context.renderWindow.getView().getSize().x/2.f,
             context.renderWindow.getView().getSize().y/2.f - textRect.height);
 
-    textRect = exitOptionText.getLocalBounds();
+    textRect = options[Exit].getLocalBounds();
 
-    exitOptionText.setOrigin(
+    options[Exit].setOrigin(
             textRect.left + textRect.width/2.0f,
             textRect.top  + textRect.height/2.0f);
 
-    exitOptionText.setPosition(
+    options[Exit].setPosition(
             context.renderWindow.getView().getSize().x/2.f,
             context.renderWindow.getView().getSize().y/2.f + textRect.height);
 }
 
 bool MainMenuState::handleEvent(sf::Event event) {
-    if (event.type == sf::Event::KeyPressed) {
+    switch (event.type) {
+        case sf::Event::KeyPressed: {
+            switch (event.key.code) {
+                case sf::Keyboard::Up: {
+                    isUp = true;
+                }break;
 
-    } else if (event.type == sf::Event::KeyReleased) {
+                case sf::Keyboard::Down: {
+                    isDown = true;
+                }break;
 
+                default:;
+            }
+        }break;
+
+        case sf::Event::KeyReleased: {
+            if (event.key.code == sf::Keyboard::Up || event.key.code == sf::Keyboard::Down) {
+                previousTick -= tickDuration;
+            }
+        }break;
+
+        default:;
     }
 
     return true;
 }
 
-bool MainMenuState::update(TimePointMs) {
-    return true;
+bool MainMenuState::update(TimePointMs timePoint) {
+    if (isUp) {
+        isUp = false;
+
+        if (timePoint - previousTick < tickDuration) return false;
+
+        options[selectedOption].setFillColor(defaultColor);
+
+        if (selectedOption == Count - 1) {
+            selectedOption = 0;
+        } else {
+            ++selectedOption;
+        }
+
+        options[selectedOption].setFillColor(selectionColor);
+    }
+
+    if (isDown) {
+        isDown = false;
+
+        if (timePoint - previousTick < tickDuration) return false;
+
+        options[selectedOption].setFillColor(defaultColor);
+
+        if (selectedOption == 0) {
+            selectedOption = Count - 1;
+        } else {
+            --selectedOption;
+        }
+
+        options[selectedOption].setFillColor(selectionColor);
+    }
+
+
+    return false;
 }
 
 bool MainMenuState::draw() {
-    context.renderWindow.draw(playOptionText);
-    context.renderWindow.draw(exitOptionText);
+    for (auto& option : options) {
+        context.renderWindow.draw(option);
+    }
+
     return false;
 }
 

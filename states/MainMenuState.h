@@ -15,14 +15,22 @@ public:
     bool isTransparent() override;
 
 private:
-    sf::Text playOptionText;
-    sf::Text exitOptionText;
+    enum Options {
+        Play,
+        Exit,
+
+        Count
+    };
+
+private:
+    std::array<sf::Text, Options::Count> options;
     sf::Color selectionColor;
     sf::Color defaultColor;
     TimePointMs previousTick { TIME_POINT };
     std::chrono::milliseconds tickDuration { 100ms };
     bool isUp { false };
     bool isDown { false };
+    char selectedOption;
 };
 
 
