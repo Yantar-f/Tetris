@@ -44,33 +44,43 @@ bool MainMenuState::handleEvent(sf::Event event) {
                         case Play: {
                             stateStack.popState();
                             stateStack.pushState(StateName::Game);
-                        }break;
+                            break;
+                        }
 
                         case Exit: {
                             stateStack.clearStates();
-                        }break;
+                            break;
+                        }
 
                         default:;
                     }
-                }break;
+
+                    break;
+                }
 
                 case sf::Keyboard::Up: {
                     isUp = true;
-                }break;
+                    break;
+                }
 
                 case sf::Keyboard::Down: {
                     isDown = true;
-                }break;
+                    break;
+                }
 
                 default:;
             }
-        }break;
+
+            break;
+        }
 
         case sf::Event::KeyReleased: {
             if (event.key.code == sf::Keyboard::Up || event.key.code == sf::Keyboard::Down) {
                 previousTick -= tickDuration;
             }
-        }break;
+
+            break;
+        }
 
         default:;
     }

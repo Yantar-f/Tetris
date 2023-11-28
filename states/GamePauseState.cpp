@@ -60,42 +60,54 @@ bool GamePauseState::handleEvent(sf::Event event) {
                     switch (selectedOption) {
                         case Continue: {
                             stateStack.popState();
-                        }break;
+                            break;
+                        }
 
                         case MainMenu: {
                             stateStack.clearStates();
                             stateStack.pushState(StateName::MainMenu);
-                        }break;
+                            break;
+                        }
 
                         case Exit: {
                             stateStack.clearStates();
-                        }break;
+                            break;
+                        }
 
                         default:;
                     }
-                }break;
+
+                    break;
+                }
 
                 case sf::Keyboard::Escape: {
                     stateStack.popState();
-                }break;
+                    break;
+                }
 
                 case sf::Keyboard::Up: {
                     isUp = true;
-                }break;
+                    break;
+                }
 
                 case sf::Keyboard::Down: {
                     isDown = true;
-                }break;
+                    break;
+                }
 
                 default:;
             }
-        }break;
+
+            break;
+        }
 
         case sf::Event::KeyReleased: {
             if (event.key.code == sf::Keyboard::Up || event.key.code == sf::Keyboard::Down) {
                 previousTick -= tickDuration;
             }
-        }break;
+
+            break;
+        }
 
         default:;
     }
