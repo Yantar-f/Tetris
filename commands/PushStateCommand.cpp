@@ -10,12 +10,12 @@ PushStateCommand::PushStateCommand(
         stateFactory(stateFactory) {}
 
 void PushStateCommand::execute() {
-    LOG_INFO(std::string("Creating state: id = ").append(std::to_string(stateName)));
+    LOG_INFO(std::string("Creating state: id = ").append(std::to_string(static_cast<int>(stateName))));
 
     auto it = stateFactory.find(stateName);
 
     if (it == stateFactory.end()) {
-        LOG_FATAL(std::string("State not found: id = ").append(std::to_string(stateName)));
+        LOG_FATAL(std::string("State not found: id = ").append(std::to_string(static_cast<int>(stateName))));
         TERMINATE(EXIT_FAILURE);
     }
 

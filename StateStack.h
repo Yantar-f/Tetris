@@ -42,7 +42,7 @@ private:
 
 template<typename StateToCreate>
 void StateStack::registerState(StateName stateName) {
-    LOG_INFO(std::string("Registering state: id = ").append(std::to_string(stateName)));
+    LOG_INFO(std::string("Registering state: id = ").append(std::to_string(static_cast<int>(stateName))));
     stateFactory[stateName] = [this] () { return std::unique_ptr<State> (new StateToCreate(*this, context));};
 }
 

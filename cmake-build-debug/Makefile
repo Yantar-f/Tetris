@@ -416,6 +416,30 @@ states/MainMenuState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/states/MainMenuState.cpp.s
 .PHONY : states/MainMenuState.cpp.s
 
+states/MenuState.obj: states/MenuState.cpp.obj
+.PHONY : states/MenuState.obj
+
+# target to build an object file
+states/MenuState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/states/MenuState.cpp.obj
+.PHONY : states/MenuState.cpp.obj
+
+states/MenuState.i: states/MenuState.cpp.i
+.PHONY : states/MenuState.i
+
+# target to preprocess a source file
+states/MenuState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/states/MenuState.cpp.i
+.PHONY : states/MenuState.cpp.i
+
+states/MenuState.s: states/MenuState.cpp.s
+.PHONY : states/MenuState.s
+
+# target to generate assembly for a file
+states/MenuState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/states/MenuState.cpp.s
+.PHONY : states/MenuState.cpp.s
+
 states/PreloadAppState.obj: states/PreloadAppState.cpp.obj
 .PHONY : states/PreloadAppState.obj
 
@@ -509,6 +533,9 @@ help:
 	@echo ... states/MainMenuState.obj
 	@echo ... states/MainMenuState.i
 	@echo ... states/MainMenuState.s
+	@echo ... states/MenuState.obj
+	@echo ... states/MenuState.i
+	@echo ... states/MenuState.s
 	@echo ... states/PreloadAppState.obj
 	@echo ... states/PreloadAppState.i
 	@echo ... states/PreloadAppState.s

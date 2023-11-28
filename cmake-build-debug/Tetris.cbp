@@ -158,6 +158,12 @@
 		<Unit filename="C:/Projets/Tetris/states/MainMenuState.h">
 			<Option target="Tetris"/>
 		</Unit>
+		<Unit filename="C:/Projets/Tetris/states/MenuState.cpp">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/states/MenuState.h">
+			<Option target="Tetris"/>
+		</Unit>
 		<Unit filename="C:/Projets/Tetris/states/PreloadAppState.cpp">
 			<Option target="Tetris"/>
 		</Unit>
