@@ -120,8 +120,7 @@ bool GamePauseState::update(TimePointMs timePoint) {
         isUp = false;
 
         if (timePoint - previousTick < tickDuration) return false;
-
-        if (timePoint - previousTick < tickDuration) return false;
+        previousTick = TIME_POINT;
 
         options[selectedOption].setFillColor(defaultColor);
 
@@ -136,6 +135,9 @@ bool GamePauseState::update(TimePointMs timePoint) {
 
     if (isDown) {
         isDown = false;
+
+        if (timePoint - previousTick < tickDuration) return false;
+        previousTick = TIME_POINT;
 
         options[selectedOption].setFillColor(defaultColor);
 
