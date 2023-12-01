@@ -5,31 +5,31 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Tetris main.cpp
         Application.cpp
-        Application.h
+        Application.hpp
         StateStack.cpp
-        StateStack.h
+        StateStack.hpp
         states/State.cpp
-        states/State.h
-        CommonDefinitions.h
+        states/State.hpp
+        CommonDefinitions.hpp
         log/Logger.cpp
-        log/Logger.h
+        log/Logger.hpp
         FatalTerminationManager.cpp
-        FatalTerminationManager.h
-        states/StateName.h
+        FatalTerminationManager.hpp
+        states/StateName.hpp
         commands/PushStateCommand.cpp
         commands/PopStateCommand.cpp
         commands/ClearStateCommand.cpp
         states/MainMenuState.cpp
-        states/MainMenuState.h
+        states/MainMenuState.hpp
         states/PreloadAppState.cpp
-        states/PreloadAppState.h
+        states/PreloadAppState.hpp
         states/GameState.cpp
-        states/GameState.h
+        states/GameState.hpp
         states/GamePauseState.cpp
-        states/GamePauseState.h
+        states/GamePauseState.hpp
         Context.cpp
         states/MenuState.cpp
-        states/MenuState.h
+        states/MenuState.hpp
 )
 
 set(SFML_STATIC_LIBRARIES TRUE)

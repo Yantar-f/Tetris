@@ -1,9 +1,9 @@
-#include "Application.h"
-#include "Log/Logger.h"
-#include "states/PreloadAppState.h"
-#include "states/MainMenuState.h"
-#include "states/GamePauseState.h"
-#include "states/GameState.h"
+#include "Application.hpp"
+#include "Log/Logger.hpp"
+#include "states/PreloadAppState.hpp"
+#include "states/MainMenuState.hpp"
+#include "states/GamePauseState.hpp"
+#include "states/GameState.hpp"
 
 #include <chrono>
 

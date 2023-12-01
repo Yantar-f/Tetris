@@ -1,4 +1,4 @@
-#include "PopStateCommand.h"
+#include "PopStateCommand.hpp"
 
 PopStateCommand::PopStateCommand(std::vector<std::unique_ptr<State>>& stack) : stack(stack) {}
 

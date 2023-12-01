@@ -2,7 +2,7 @@
 // Created by Yantar on 27/11/2023.
 //
 
-#include "MenuState.h"
+#include "MenuState.hpp"
 
 MenuState::MenuState(
         StateStack& stateStack,

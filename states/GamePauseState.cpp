@@ -1,4 +1,4 @@
-#include "GamePauseState.h"
+#include "GamePauseState.hpp"
 
 GamePauseState::GamePauseState(StateStack& stateStack, Context& context) :
         MenuState(stateStack, context, sf::Color::Cyan, sf::Color::White, Continue, Count) {

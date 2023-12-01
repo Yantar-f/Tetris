@@ -1,4 +1,4 @@
-#include "PreloadAppState.h"
+#include "PreloadAppState.hpp"
 
 PreloadAppState::PreloadAppState(StateStack& stackStack, Context& context) : State(stackStack, context), color(sf::Color::White) {
     color.a = 0;

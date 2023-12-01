@@ -1,5 +1,5 @@
-#include "PushStateCommand.h"
-#include "../FatalTerminationManager.h"
+#include "PushStateCommand.hpp"
+#include "../FatalTerminationManager.hpp"
 
 PushStateCommand::PushStateCommand(
         StateName stateName,

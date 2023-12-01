@@ -1,7 +1,7 @@
-#include "StateStack.h"
-#include "Commands/ClearStateCommand.h"
-#include "Commands/PopStateCommand.h"
-#include "Commands/PushStateCommand.h"
+#include "StateStack.hpp"
+#include "Commands/ClearStateCommand.hpp"
+#include "Commands/PopStateCommand.hpp"
+#include "Commands/PushStateCommand.hpp"
 
 StateStack::StateStack(Context& context) : context(context) {
     stack.reserve(20);

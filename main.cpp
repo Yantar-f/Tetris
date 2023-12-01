@@ -1,5 +1,5 @@
-#include "Application.h"
-#include "FatalTerminationManager.h"
+#include "Application.hpp"
+#include "FatalTerminationManager.hpp"
 
 int main() {
     LOG_INFO("Running application");

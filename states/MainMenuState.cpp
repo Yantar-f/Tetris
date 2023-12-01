@@ -1,4 +1,4 @@
-#include "MainMenuState.h"
+#include "MainMenuState.hpp"
 
 MainMenuState::MainMenuState(StateStack& stateStack, Context& context) :
         MenuState(stateStack, context, sf::Color::Cyan, sf::Color::White, 0, Count) {

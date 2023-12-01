@@ -1,6 +1,6 @@
-#include "Context.h"
-#include "log/Logger.h"
-#include "FatalTerminationManager.h"
+#include "Context.hpp"
+#include "log/Logger.hpp"
+#include "FatalTerminationManager.hpp"
 
 Context::Context(sf::VideoMode videoMode, const std::string& windowTitle, sf::Uint32 windowStyle, const char* resourcePath) :
         renderWindow(videoMode, windowTitle, windowStyle),
