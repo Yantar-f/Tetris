@@ -10,8 +10,28 @@ GameState::GameState(StateStack& stateStack, Context& context) : State(stateStac
 
 bool GameState::handleEvent(sf::Event event) {
     if (event.type == sf::Event::KeyPressed) {
-        if (event.key.code == sf::Keyboard::Escape) {
-            stateStack.pushState(StateName::GamePause);
+        switch (event.key.code) {
+            case sf::Keyboard::Escape: {
+                stateStack.pushState(StateName::GamePause);
+                break;
+            }
+
+            case sf::Keyboard::R: {
+                /*ROTATE*/
+                break;
+            }
+
+            case sf::Keyboard::Left: {
+                /*MOVE LEFT*/
+                break;
+            }
+
+            case sf::Keyboard::Right: {
+                /*MOVE RIGHT*/
+                break;
+            }
+
+            default:;
         }
     }
     return true;
