@@ -30,6 +30,8 @@ add_executable(Tetris main.cpp
         Context.cpp
         states/MenuState.cpp
         states/MenuState.hpp
+        states/EndGameMenuState.hpp
+        states/EndGameMenuState.cpp
 )
 
 set(SFML_STATIC_LIBRARIES TRUE)

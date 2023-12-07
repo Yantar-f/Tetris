@@ -50,6 +50,12 @@ GamePauseState::GamePauseState(StateStack& stateStack, Context& context) :
     options[Exit].setPosition(
             context.renderWindow.getView().getSize().x/2.f,
             context.renderWindow.getView().getSize().y/2.f + 2 * textRect.height);
+
+    sf::Color backgroundColor = sf::Color::Black;
+    backgroundColor.a = 120;
+
+    backgroundShape.setSize(sf::Vector2f (context.renderWindow.getSize()));
+    backgroundShape.setFillColor(backgroundColor);
 }
 
 bool GamePauseState::handleEvent(sf::Event event) {
@@ -155,11 +161,13 @@ bool GamePauseState::update(TimePointMs timePoint) {
 }
 
 bool GamePauseState::draw() {
+    context.renderWindow.draw(backgroundShape);
+
     for (auto& option : options) {
         context.renderWindow.draw(option);
     }
 
-    return false;
+    return true;
 }
 
 bool GamePauseState::isTransparent() {

@@ -4,6 +4,7 @@
 #include "states/MainMenuState.hpp"
 #include "states/GamePauseState.hpp"
 #include "states/GameState.hpp"
+#include "states/EndGameMenuState.hpp"
 
 #include <chrono>
 
@@ -68,6 +69,7 @@ void Application::registerStates() {
     stateStack.registerState<MainMenuState>(StateName::MainMenu);
     stateStack.registerState<GameState>(StateName::Game);
     stateStack.registerState<GamePauseState>(StateName::GamePause);
+    stateStack.registerState<EndGameMenuState>(StateName::EndGame);
 }
 
 void Application::initializeStates() {

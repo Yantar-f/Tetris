@@ -344,6 +344,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+states/EndGameMenuState.obj: states/EndGameMenuState.cpp.obj
+.PHONY : states/EndGameMenuState.obj
+
+# target to build an object file
+states/EndGameMenuState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/states/EndGameMenuState.cpp.obj
+.PHONY : states/EndGameMenuState.cpp.obj
+
+states/EndGameMenuState.i: states/EndGameMenuState.cpp.i
+.PHONY : states/EndGameMenuState.i
+
+# target to preprocess a source file
+states/EndGameMenuState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/states/EndGameMenuState.cpp.i
+.PHONY : states/EndGameMenuState.cpp.i
+
+states/EndGameMenuState.s: states/EndGameMenuState.cpp.s
+.PHONY : states/EndGameMenuState.s
+
+# target to generate assembly for a file
+states/EndGameMenuState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/states/EndGameMenuState.cpp.s
+.PHONY : states/EndGameMenuState.cpp.s
+
 states/GamePauseState.obj: states/GamePauseState.cpp.obj
 .PHONY : states/GamePauseState.obj
 
@@ -524,6 +548,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... states/EndGameMenuState.obj
+	@echo ... states/EndGameMenuState.i
+	@echo ... states/EndGameMenuState.s
 	@echo ... states/GamePauseState.obj
 	@echo ... states/GamePauseState.i
 	@echo ... states/GamePauseState.s

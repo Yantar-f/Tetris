@@ -89,94 +89,100 @@
 		<Unit filename="C:/Projets/Tetris/Application.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/Application.h">
+		<Unit filename="C:/Projets/Tetris/Application.hpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/CommonDefinitions.h">
+		<Unit filename="C:/Projets/Tetris/CommonDefinitions.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/Context.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/Context.h">
+		<Unit filename="C:/Projets/Tetris/Context.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/FatalTerminationManager.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/FatalTerminationManager.h">
+		<Unit filename="C:/Projets/Tetris/FatalTerminationManager.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/StateStack.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/StateStack.h">
+		<Unit filename="C:/Projets/Tetris/StateStack.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/commands/ClearStateCommand.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/commands/ClearStateCommand.h">
+		<Unit filename="C:/Projets/Tetris/commands/ClearStateCommand.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/commands/PopStateCommand.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/commands/PopStateCommand.h">
+		<Unit filename="C:/Projets/Tetris/commands/PopStateCommand.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/commands/PushStateCommand.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/commands/PushStateCommand.h">
+		<Unit filename="C:/Projets/Tetris/commands/PushStateCommand.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/log/Logger.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/log/Logger.h">
+		<Unit filename="C:/Projets/Tetris/log/Logger.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/main.cpp">
 			<Option target="Tetris"/>
 		</Unit>
+		<Unit filename="C:/Projets/Tetris/states/EndGameMenuState.cpp">
+			<Option target="Tetris"/>
+		</Unit>
+		<Unit filename="C:/Projets/Tetris/states/EndGameMenuState.hpp">
+			<Option target="Tetris"/>
+		</Unit>
 		<Unit filename="C:/Projets/Tetris/states/GamePauseState.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/states/GamePauseState.h">
+		<Unit filename="C:/Projets/Tetris/states/GamePauseState.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/states/GameState.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/states/GameState.h">
+		<Unit filename="C:/Projets/Tetris/states/GameState.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/states/MainMenuState.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/states/MainMenuState.h">
+		<Unit filename="C:/Projets/Tetris/states/MainMenuState.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/states/MenuState.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/states/MenuState.h">
+		<Unit filename="C:/Projets/Tetris/states/MenuState.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/states/PreloadAppState.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/states/PreloadAppState.h">
+		<Unit filename="C:/Projets/Tetris/states/PreloadAppState.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/states/State.cpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/states/State.h">
+		<Unit filename="C:/Projets/Tetris/states/State.hpp">
 			<Option target="Tetris"/>
 		</Unit>
-		<Unit filename="C:/Projets/Tetris/states/StateName.h">
+		<Unit filename="C:/Projets/Tetris/states/StateName.hpp">
 			<Option target="Tetris"/>
 		</Unit>
 		<Unit filename="C:/Projets/Tetris/CMakeLists.txt">

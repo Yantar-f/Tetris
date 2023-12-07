@@ -5,7 +5,8 @@ enum class StateName {
     PreloadApp,
     MainMenu,
     Game,
-    GamePause
+    GamePause,
+    EndGame
 };
 
 #endif //TETRIS_STATENAME_HPP

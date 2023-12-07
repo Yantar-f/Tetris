@@ -20,6 +20,9 @@ private:
 
         Count
     };
+
+private:
+    sf::RectangleShape backgroundShape;
 };
 
 

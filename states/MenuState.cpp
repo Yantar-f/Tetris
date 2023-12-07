@@ -1,7 +1,3 @@
-//
-// Created by Yantar on 27/11/2023.
-//
-
 #include "MenuState.hpp"
 
 MenuState::MenuState(
