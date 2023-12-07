@@ -49,7 +49,7 @@ bool GameState::handleEvent(sf::Event event) {
 
 bool GameState::update(TimePointMs timePoint) {
     if (isStabled) {
-        if ( ! tryGenerateShape()) {
+        if ( ! trySpawnShape()) {
             stateStack.pushState(StateName::EndGame);
             return true;
         }
@@ -97,7 +97,9 @@ bool GameState::isTransparent() {
     return true;
 }
 
-bool GameState::tryGenerateShape() {
+bool GameState::trySpawnShape() {
+    int minLeftShapePos = shapeSpawnRange(randEngine);
+
     return true;
 }
 
