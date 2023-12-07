@@ -75,8 +75,14 @@ bool MainMenuState::handleEvent(sf::Event event) {
         }
 
         case sf::Event::KeyReleased: {
-            if (event.key.code == sf::Keyboard::Up || event.key.code == sf::Keyboard::Down) {
-                previousTick -= tickDuration;
+            switch (event.key.code) {
+                case sf::Keyboard::Left:
+                case sf::Keyboard::Right: {
+                    previousTick -= tickDuration;
+                    break;
+                }
+
+                default:;
             }
 
             break;

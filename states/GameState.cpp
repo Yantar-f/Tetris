@@ -22,12 +22,22 @@ bool GameState::handleEvent(sf::Event event) {
             }
 
             case sf::Keyboard::Left: {
-                /*MOVE LEFT*/
+                isMovingLeft = true;
                 break;
             }
 
             case sf::Keyboard::Right: {
-                /*MOVE RIGHT*/
+                isMovingRight = true;
+                break;
+            }
+
+            default:;
+        }
+    } else if (event.type == sf::Event::KeyReleased) {
+        switch (event.key.code) {
+            case sf::Keyboard::Left:
+            case sf::Keyboard::Right: {
+                horizontalMovingTick -= horizontalMovingTickDuration;
                 break;
             }
 
@@ -37,7 +47,28 @@ bool GameState::handleEvent(sf::Event event) {
     return true;
 }
 
-bool GameState::update(TimePointMs) {
+bool GameState::update(TimePointMs timePoint) {
+    if (isStabled) {
+        if ( ! tryGenerateShape()) {
+            stateStack.pushState(StateName::EndGame);
+            return true;
+        }
+    }
+
+    if (isMovingLeft) {
+        isMovingLeft = false;
+        /*TRY MOVE RIGHT*/
+    }
+
+    if (isMovingRight) {
+        isMovingRight = false;
+        /*TRY MOVE RIGHT*/
+    }
+
+    if (isShapeColliding()) {
+        isStabled = true;
+    }
+
     return true;
 }
 
@@ -64,4 +95,26 @@ bool GameState::draw() {
 
 bool GameState::isTransparent() {
     return true;
+}
+
+bool GameState::tryGenerateShape() {
+    return true;
+}
+
+bool GameState::isShapeColliding() {
+    for (sf::Vector2i tilePos : shapeTilesPoss) {
+        sf::Vector2i comparablePos {tilePos.x, tilePos.y + 1};
+
+        if (comparablePos.y == DEFAULT_FIELD_HEIGHT) return true;
+
+        if (field[comparablePos.x][comparablePos.y]) {
+            for (sf::Vector2 selfTilePos : shapeTilesPoss) {
+                if (comparablePos == selfTilePos) return false;
+            }
+
+            return true;
+        }
+    }
+
+    return false;
 }
