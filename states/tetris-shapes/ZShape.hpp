@@ -10,7 +10,9 @@
 
 class ZShape : public TetrisShape {
 public:
-    ZShape();
+    ZShape(bool **field, int fieldWidth, int fieldHeight);
+
+    void rotate() override;
 };
 
 

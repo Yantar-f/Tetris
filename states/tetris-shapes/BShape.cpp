@@ -3,3 +3,8 @@
 //
 
 #include "BShape.hpp"
+
+BShape::BShape(bool **field, int fieldWidth, int fieldHeight) : TetrisShape(field, fieldWidth, fieldHeight) {}
+
+void BShape::rotate() {}
+

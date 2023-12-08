@@ -3,3 +3,11 @@
 //
 
 #include "IShape.hpp"
+
+IShape::IShape(bool **field, int fieldWidth, int fieldHeight) : TetrisShape(field, fieldWidth, fieldHeight) {
+
+}
+
+void IShape::rotate() {
+
+}

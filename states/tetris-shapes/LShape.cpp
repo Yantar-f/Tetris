@@ -3,3 +3,11 @@
 //
 
 #include "LShape.hpp"
+
+LShape::LShape(bool **field, int fieldWidth, int fieldHeight) : TetrisShape(field, fieldWidth, fieldHeight) {
+
+}
+
+void LShape::rotate() {
+
+}

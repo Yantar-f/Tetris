@@ -4,4 +4,8 @@
 
 #include "ZShape.hpp"
 
-ZShape::ZShape() = default;
+ZShape::ZShape(bool **field, int fieldWidth, int fieldHeight) : TetrisShape(field, fieldWidth, fieldHeight) {}
+
+void ZShape::rotate() {
+
+}

@@ -9,7 +9,10 @@
 #include "TetrisShape.hpp"
 
 class IShape : public TetrisShape{
+public:
+    IShape(bool** field, int fieldWidth, int fieldHeight);
 
+    void rotate() override;
 };
 
 

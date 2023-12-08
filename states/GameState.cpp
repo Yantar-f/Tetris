@@ -55,24 +55,33 @@ bool GameState::update(TimePointMs timePoint) {
         }
     }
 
-    if (isMovingLeft) {
-        isMovingLeft = false;
-        /*TRY TO MOVE RIGHT*/
+    if (timePoint - horizontalMovingTick > horizontalMovingTickDuration) {
+        if (isMovingLeft) {
+            isMovingLeft = false;
+            /*TRY TO MOVE LEFT*/
+        }
+
+        if (isMovingRight) {
+            isMovingRight = false;
+            /*TRY TO MOVE RIGHT*/
+        }
+
+        if (isRotating) {
+            isRotating = false;
+            /*TRY TO ROTATE*/
+        }
+
+        horizontalMovingTick = timePoint;
     }
 
-    if (isMovingRight) {
-        isMovingRight = false;
-        /*TRY TO MOVE RIGHT*/
+    if (timePoint - verticalMovingTick > verticalMovingTickDuration) {
+        if (isShapeColliding()) {
+            isStabled = true;
+        }
+
+        verticalMovingTick = timePoint;
     }
 
-    if (isRotating) {
-        isRotating = false;
-        /*TRY TO ROTATE*/
-    }
-
-    if (isShapeColliding()) {
-        isStabled = true;
-    }
 
     return true;
 }
