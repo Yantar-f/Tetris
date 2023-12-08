@@ -33,3 +33,7 @@
 41	1442	7237377991577706	CMakeFiles/Tetris.dir/states/tetris-shapes/IShape.cpp.obj	47e2b86ef24f5748
 34	1455	7237377991708896	CMakeFiles/Tetris.dir/states/tetris-shapes/ZShape.cpp.obj	55f7a1c4dec8c8b4
 1455	2760	7237378004554178	Tetris.exe	6540394e22f2a267
+9	849	7237400090165781	CMakeFiles/Tetris.dir/states/tetris-shapes/TetrisShape.cpp.obj	aac32fb528634005
+849	2146	7237400102952255	Tetris.exe	6540394e22f2a267
+10	1072	7237404877166276	CMakeFiles/Tetris.dir/states/tetris-shapes/TetrisShape.cpp.obj	aac32fb528634005
+1072	2431	7237404890638495	Tetris.exe	6540394e22f2a267

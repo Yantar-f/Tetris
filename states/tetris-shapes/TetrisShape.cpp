@@ -71,7 +71,7 @@ bool TetrisShape::moveDown() {
         field[tilePos.x][tilePos.y] = false;
     }
 
-    for (auto tilePos : tilesPoss) {
+    for (auto& tilePos : tilesPoss) {
         tilePos.y += 1;
         field[tilePos.x][tilePos.y] = true;
     }
@@ -100,7 +100,7 @@ void TetrisShape::horizontalMove(char direction) {
         field[tilePos.x][tilePos.y] = false;
     }
 
-    for (auto tilePos : tilesPoss) {
+    for (auto& tilePos : tilesPoss) {
         tilePos.x += direction;
         field[tilePos.x][tilePos.y] = true;
     }
