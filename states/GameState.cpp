@@ -17,7 +17,7 @@ bool GameState::handleEvent(sf::Event event) {
             }
 
             case sf::Keyboard::R: {
-                /*ROTATE*/
+                isRotating = true;
                 break;
             }
 
@@ -57,12 +57,17 @@ bool GameState::update(TimePointMs timePoint) {
 
     if (isMovingLeft) {
         isMovingLeft = false;
-        /*TRY MOVE RIGHT*/
+        /*TRY TO MOVE RIGHT*/
     }
 
     if (isMovingRight) {
         isMovingRight = false;
-        /*TRY MOVE RIGHT*/
+        /*TRY TO MOVE RIGHT*/
+    }
+
+    if (isRotating) {
+        isRotating = false;
+        /*TRY TO ROTATE*/
     }
 
     if (isShapeColliding()) {
@@ -104,13 +109,13 @@ bool GameState::trySpawnShape() {
 }
 
 bool GameState::isShapeColliding() {
-    for (sf::Vector2i tilePos : shapeTilesPoss) {
+    for (sf::Vector2i tilePos : playerShape->tilesPoss) {
         sf::Vector2i comparablePos {tilePos.x, tilePos.y + 1};
 
         if (comparablePos.y == DEFAULT_FIELD_HEIGHT) return true;
 
         if (field[comparablePos.x][comparablePos.y]) {
-            for (sf::Vector2 selfTilePos : shapeTilesPoss) {
+            for (sf::Vector2 selfTilePos : playerShape->tilesPoss) {
                 if (comparablePos == selfTilePos) return false;
             }
 

@@ -32,6 +32,17 @@ add_executable(Tetris main.cpp
         states/MenuState.hpp
         states/EndGameMenuState.hpp
         states/EndGameMenuState.cpp
+        states/tetris-shapes/TetrisShape.cpp
+        states/tetris-shapes/TetrisShape.hpp
+        states/tetris-shapes/BShape.cpp
+        states/tetris-shapes/BShape.hpp
+        states/tetris-shapes/ZShape.cpp
+        states/tetris-shapes/ZShape.hpp
+        states/tetris-shapes/LShape.cpp
+        states/tetris-shapes/LShape.hpp
+        states/tetris-shapes/IShape.cpp
+        states/tetris-shapes/IShape.hpp
+        states/tetris-shapes/ShapeType.hpp
 )
 
 set(SFML_STATIC_LIBRARIES TRUE)
