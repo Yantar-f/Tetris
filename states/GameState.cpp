@@ -1,11 +1,23 @@
 #include "GameState.hpp"
+#include "../exceptions/NoSpawnSpaceException.hpp"
 
-GameState::GameState(StateStack& stateStack, Context& context) : State(stateStack, context) {
+GameState::GameState(StateStack& stateStack, Context& context) :
+        State(stateStack, context),
+        field(new bool*[DEFAULT_FIELD_WIDTH]) {
+
     cellShape.setFillColor(sf::Color::Yellow);
     cellShape.setSize({DEFAULT_CELL_SIZE, DEFAULT_CELL_SIZE});
 
     boxShape.setFillColor(sf::Color::Cyan);
     boxShape.setSize({DEFAULT_CELL_SIZE, DEFAULT_CELL_SIZE});
+
+    for (int i = 0; i < DEFAULT_FIELD_WIDTH; ++i) {
+        field[i] = new bool[DEFAULT_FIELD_HEIGHT];
+
+        for (int j = 0; j < DEFAULT_FIELD_HEIGHT; ++j) {
+            field[i][j] = false;
+        }
+    }
 }
 
 bool GameState::handleEvent(sf::Event event) {
@@ -53,35 +65,36 @@ bool GameState::update(TimePointMs timePoint) {
             stateStack.pushState(StateName::EndGame);
             return true;
         }
+
+        isStabled = false;
     }
 
     if (timePoint - horizontalMovingTick > horizontalMovingTickDuration) {
         if (isMovingLeft) {
             isMovingLeft = false;
-            /*TRY TO MOVE LEFT*/
+            playerShape->moveLeft();
         }
 
         if (isMovingRight) {
             isMovingRight = false;
-            /*TRY TO MOVE RIGHT*/
+            playerShape->moveRight();
         }
 
         if (isRotating) {
             isRotating = false;
-            /*TRY TO ROTATE*/
+            playerShape->rotate();
         }
 
         horizontalMovingTick = timePoint;
     }
 
     if (timePoint - verticalMovingTick > verticalMovingTickDuration) {
-        if (isShapeColliding()) {
+        if ( ! playerShape->moveDown()) {
             isStabled = true;
         }
 
         verticalMovingTick = timePoint;
     }
-
 
     return true;
 }
@@ -112,25 +125,23 @@ bool GameState::isTransparent() {
 }
 
 bool GameState::trySpawnShape() {
-    int minLeftShapePos = shapeSpawnRange(randEngine);
+
+    try {
+        playerShape = TetrisShape::createShape(
+                static_cast<ShapeType>(shapeTypeRange(randEngine)),
+                field,
+                DEFAULT_FIELD_WIDTH,
+                DEFAULT_FIELD_HEIGHT);
+    } catch (NoSpawnSpaceException& ex) {
+        return false;
+    }
 
     return true;
 }
 
-bool GameState::isShapeColliding() {
-    for (sf::Vector2i tilePos : playerShape->tilesPoss) {
-        sf::Vector2i comparablePos {tilePos.x, tilePos.y + 1};
-
-        if (comparablePos.y == DEFAULT_FIELD_HEIGHT) return true;
-
-        if (field[comparablePos.x][comparablePos.y]) {
-            for (sf::Vector2 selfTilePos : playerShape->tilesPoss) {
-                if (comparablePos == selfTilePos) return false;
-            }
-
-            return true;
-        }
+GameState::~GameState() {
+    if (field != nullptr) {
+        for (int i = 0; i < DEFAULT_FIELD_WIDTH; ++i) delete field[i];
+        delete[] field;
     }
-
-    return false;
 }

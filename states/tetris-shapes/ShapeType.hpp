@@ -5,7 +5,9 @@ enum class ShapeType {
     ZShape,
     LShape,
     IShape,
-    BShape
+    BShape,
+
+    Count
 };
 
 #endif //TETRIS_SHAPETYPE_HPP

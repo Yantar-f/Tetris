@@ -20,6 +20,7 @@ std::unique_ptr<TetrisShape> TetrisShape::createShape(ShapeType shapeType, bool 
             return std::make_unique<IShape>(field, fieldWidth, fieldHeight);
         }
 
+        default:
         case ShapeType::BShape: {
             return std::make_unique<BShape>(field, fieldWidth, fieldHeight);
         }
@@ -39,6 +40,10 @@ void TetrisShape::moveRight() {
     horizontalMove(1);
 }
 
+bool TetrisShape::moveDown() {
+    return false;
+}
+
 void TetrisShape::horizontalMove(char direction) {
     for (auto tilePos : tilesPoss) {
         sf::Vector2i comparablePos {tilePos.x + direction, tilePos.y};
@@ -47,17 +52,21 @@ void TetrisShape::horizontalMove(char direction) {
 
         if (field[comparablePos.x][comparablePos.y]) {
             bool isSelfTile = false;
+
             for (sf::Vector2 selfTilePos : tilesPoss) {
                 if (comparablePos == selfTilePos) isSelfTile = true;
             }
+
             if ( ! isSelfTile) return;
         }
     }
 
     for (auto tilePos : tilesPoss) {
         field[tilePos.x][tilePos.y] = false;
+    }
+
+    for (auto tilePos : tilesPoss) {
         tilePos.x += direction;
         field[tilePos.x][tilePos.y] = true;
     }
 }
-

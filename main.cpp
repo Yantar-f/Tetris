@@ -8,7 +8,7 @@ int main() {
         Application application;
         application.run();
     } catch (std::exception& ex) {
-        LOG_FATAL(std::string("Undefined exception: ").append(ex.what()));
+        LOG_FATAL(std::string("Undefined exceptions: ").append(ex.what()));
         TERMINATE(EXIT_FAILURE);
     }
 

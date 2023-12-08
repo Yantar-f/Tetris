@@ -8,7 +8,7 @@
 
 #include "TetrisShape.hpp"
 
-class BShape : public TetrisShape{
+class BShape : public TetrisShape {
 public:
     BShape(bool** field, int fieldWidth, int fieldHeight);
 

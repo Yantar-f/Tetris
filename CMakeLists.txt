@@ -43,6 +43,8 @@ add_executable(Tetris main.cpp
         states/tetris-shapes/IShape.cpp
         states/tetris-shapes/IShape.hpp
         states/tetris-shapes/ShapeType.hpp
+        exceptions/NoSpawnSpaceException.cpp
+        exceptions/NoSpawnSpaceException.hpp
 )
 
 set(SFML_STATIC_LIBRARIES TRUE)

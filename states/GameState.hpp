@@ -16,7 +16,7 @@ using namespace std::chrono_literals;
 class GameState : public State {
 public:
     GameState(StateStack &stateStack, Context& context);
-
+    ~GameState() override;
     bool handleEvent(sf::Event) override;
     bool update(TimePointMs) override;
     bool draw() override;
@@ -24,10 +24,9 @@ public:
 
 private:
     bool trySpawnShape();
-    bool isShapeColliding();
 
 private:
-    bool field[DEFAULT_FIELD_WIDTH][DEFAULT_FIELD_HEIGHT] {};
+    bool** field;
     bool isStabled { true };
     bool isMovingLeft { false };
     bool isMovingRight { false };
@@ -39,7 +38,7 @@ private:
     sf::RectangleShape boxShape;
     sf::RectangleShape cellShape;
     std::minstd_rand randEngine { static_cast<unsigned int>(TIME_POINT.time_since_epoch().count()) };
-    std::uniform_int_distribution<int> shapeSpawnRange {MIN_FIELD_WIDTH, DEFAULT_FIELD_WIDTH - MIN_FIELD_WIDTH};
+    std::uniform_int_distribution<int> shapeTypeRange {0, static_cast<int>(ShapeType::Count) - 1};
     std::unique_ptr<TetrisShape> playerShape;
 };
 
