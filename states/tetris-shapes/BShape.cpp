@@ -31,6 +31,8 @@ BShape::BShape(bool **field, int fieldWidth, int fieldHeight) : TetrisShape(fiel
     tilesPoss[3].y = 1;
 
     if (field[tilesPoss[3].x][tilesPoss[3].y]) throw NoSpawnSpaceException();
+
+    for (auto tilePos : tilesPoss) field[tilePos.x][tilePos.y] = true;
 }
 
 void BShape::rotate() {/*NOTHING*/}

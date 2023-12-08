@@ -3,11 +3,12 @@
 #include "LShape.hpp"
 #include "IShape.hpp"
 #include "BShape.hpp"
+#include "../../log/Logger.hpp"
 
 #include <memory>
 
 std::unique_ptr<TetrisShape> TetrisShape::createShape(ShapeType shapeType, bool **field, int fieldWidth, int fieldHeight) {
-    switch (shapeType) {
+    switch (shapeType) {/*
         case ShapeType::ZShape: {
             return std::make_unique<ZShape>(field, fieldWidth, fieldHeight);
         }
@@ -18,7 +19,7 @@ std::unique_ptr<TetrisShape> TetrisShape::createShape(ShapeType shapeType, bool 
 
         case ShapeType::IShape: {
             return std::make_unique<IShape>(field, fieldWidth, fieldHeight);
-        }
+        }*/
 
         default:
         case ShapeType::BShape: {
@@ -41,7 +42,41 @@ void TetrisShape::moveRight() {
 }
 
 bool TetrisShape::moveDown() {
-    return false;
+    for (auto tilePos : tilesPoss) {
+        LOG_INFO(std::string("Tile: [").append(std::to_string(tilePos.x)).append("][").append(std::to_string(tilePos.y).append("]")));
+    }
+
+    for (auto tilePos : tilesPoss) {
+        sf::Vector2i comparablePos {tilePos.x, tilePos.y + 1};
+
+        if (comparablePos.y == fieldHeight) return false;
+
+        if (field[comparablePos.x][comparablePos.y]) {
+            LOG_INFO(std::string("comp:").append(std::to_string(comparablePos.x)).append(",").append(std::to_string(comparablePos.y)));
+
+            bool isNotSelfTile = true;
+
+            for (auto selfTilePos : tilesPoss) {
+                if (comparablePos == selfTilePos) {
+                    isNotSelfTile = false;
+                    break;
+                }
+            }
+
+            if (isNotSelfTile) return false;
+        }
+    }
+
+    for (auto tilePos : tilesPoss) {
+        field[tilePos.x][tilePos.y] = false;
+    }
+
+    for (auto tilePos : tilesPoss) {
+        tilePos.y += 1;
+        field[tilePos.x][tilePos.y] = true;
+    }
+
+    return true;
 }
 
 void TetrisShape::horizontalMove(char direction) {

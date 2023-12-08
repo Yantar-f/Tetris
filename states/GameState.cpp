@@ -11,11 +11,11 @@ GameState::GameState(StateStack& stateStack, Context& context) :
     boxShape.setFillColor(sf::Color::Cyan);
     boxShape.setSize({DEFAULT_CELL_SIZE, DEFAULT_CELL_SIZE});
 
-    for (int i = 0; i < DEFAULT_FIELD_WIDTH; ++i) {
-        field[i] = new bool[DEFAULT_FIELD_HEIGHT];
+    for (int column = 0; column < DEFAULT_FIELD_WIDTH; ++column) {
+        field[column] = new bool[DEFAULT_FIELD_HEIGHT];
 
-        for (int j = 0; j < DEFAULT_FIELD_HEIGHT; ++j) {
-            field[i][j] = false;
+        for (int row = 0; row < DEFAULT_FIELD_HEIGHT; ++row) {
+            field[column][row] = false;
         }
     }
 }
@@ -66,6 +66,7 @@ bool GameState::update(TimePointMs timePoint) {
             return true;
         }
 
+        verticalMovingTick = timePoint;
         isStabled = false;
     }
 
@@ -125,7 +126,6 @@ bool GameState::isTransparent() {
 }
 
 bool GameState::trySpawnShape() {
-
     try {
         playerShape = TetrisShape::createShape(
                 static_cast<ShapeType>(shapeTypeRange(randEngine)),
@@ -133,6 +133,7 @@ bool GameState::trySpawnShape() {
                 DEFAULT_FIELD_WIDTH,
                 DEFAULT_FIELD_HEIGHT);
     } catch (NoSpawnSpaceException& ex) {
+        LOG_INFO("No space to spawn tetris shape");
         return false;
     }
 

@@ -34,7 +34,7 @@ private:
     TimePointMs horizontalMovingTick { TIME_POINT };
     TimePointMs verticalMovingTick { TIME_POINT };
     std::chrono::milliseconds horizontalMovingTickDuration { 5ms };
-    std::chrono::milliseconds verticalMovingTickDuration { 500ms };
+    std::chrono::milliseconds verticalMovingTickDuration { 1000ms };
     sf::RectangleShape boxShape;
     sf::RectangleShape cellShape;
     std::minstd_rand randEngine { static_cast<unsigned int>(TIME_POINT.time_since_epoch().count()) };
