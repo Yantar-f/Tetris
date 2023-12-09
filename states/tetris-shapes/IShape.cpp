@@ -34,14 +34,14 @@ IShape::IShape(bool **field, int fieldWidth, int fieldHeight) : TetrisShape(fiel
 void IShape::rotate() {
     switch (currentRotationAngle) {
         case Rotation::Rot0: {
-            currentRotationAngle = Rotation::Rot90;
-
             if (tilesPoss[1].y - 1 < 0) return;
             if (tilesPoss[1].y + 1 >= fieldHeight) return;
             if (tilesPoss[1].y + 2 >= fieldHeight) return;
             if (field[tilesPoss[1].x][tilesPoss[1].y - 1]) return;
             if (field[tilesPoss[1].x][tilesPoss[1].y + 1]) return;
             if (field[tilesPoss[1].x][tilesPoss[1].y + 2]) return;
+
+            currentRotationAngle = Rotation::Rot90;
 
             for (auto tilePos : tilesPoss) field[tilePos.x][tilePos.y] = false;
 
@@ -59,14 +59,14 @@ void IShape::rotate() {
         }
 
         case Rotation::Rot90: {
-            currentRotationAngle = Rotation::Rot180;
-
             if (tilesPoss[1].x - 2 < 0) return;
             if (tilesPoss[1].x - 1 < 0) return;
             if (tilesPoss[1].x + 1 >= fieldWidth) return;
             if (field[tilesPoss[1].x - 2][tilesPoss[1].y]) return;
             if (field[tilesPoss[1].x - 1][tilesPoss[1].y]) return;
             if (field[tilesPoss[1].x + 1][tilesPoss[1].y]) return;
+
+            currentRotationAngle = Rotation::Rot180;
 
             for (auto tilePos : tilesPoss) field[tilePos.x][tilePos.y] = false;
 
@@ -84,14 +84,14 @@ void IShape::rotate() {
         }
 
         case Rotation::Rot180: {
-            currentRotationAngle = Rotation::Rot270;
-
             if (tilesPoss[1].y - 2 < 0) return;
             if (tilesPoss[1].y - 1 < 0) return;
             if (tilesPoss[1].y + 1 >= fieldHeight) return;
             if (field[tilesPoss[1].x][tilesPoss[1].y - 2]) return;
             if (field[tilesPoss[1].x][tilesPoss[1].y - 1]) return;
             if (field[tilesPoss[1].x][tilesPoss[1].y + 1]) return;
+
+            currentRotationAngle = Rotation::Rot270;
 
             for (auto tilePos : tilesPoss) field[tilePos.x][tilePos.y] = false;
 
@@ -109,14 +109,14 @@ void IShape::rotate() {
         }
 
         case Rotation::Rot270: {
-            currentRotationAngle = Rotation::Rot0;
-
             if (tilesPoss[1].x - 1 < 0) return;
             if (tilesPoss[1].x + 1 >= fieldWidth) return;
             if (tilesPoss[1].x + 2 >= fieldWidth) return;
             if (field[tilesPoss[1].x - 1][tilesPoss[1].y]) return;
             if (field[tilesPoss[1].x + 1][tilesPoss[1].y]) return;
             if (field[tilesPoss[1].x + 2][tilesPoss[1].y]) return;
+
+            currentRotationAngle = Rotation::Rot0;
 
             for (auto tilePos : tilesPoss) field[tilePos.x][tilePos.y] = false;
 

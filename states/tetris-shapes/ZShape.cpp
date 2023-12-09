@@ -36,5 +36,25 @@ ZShape::ZShape(bool **field, int fieldWidth, int fieldHeight) : TetrisShape(fiel
 }
 
 void ZShape::rotate() {
+    switch (currentRotationAngle) {
+        case Rotation::Rot0: {
+            currentRotationAngle = Rotation::Rot90;
+            break;
+        }
 
+        case Rotation::Rot90: {
+            currentRotationAngle = Rotation::Rot180;
+            break;
+        }
+
+        case Rotation::Rot180: {
+            currentRotationAngle = Rotation::Rot270;
+            break;
+        }
+
+        case Rotation::Rot270: {
+            currentRotationAngle = Rotation::Rot0;
+            break;
+        }
+    }
 }
