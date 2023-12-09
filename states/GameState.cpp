@@ -91,6 +91,31 @@ bool GameState::update(TimePointMs timePoint) {
 
     if (timePoint - verticalMovingTick > verticalMovingTickDuration) {
         if ( ! playerShape->moveDown()) {
+            std::vector<int> yPoss;
+
+            for (auto tilePos : playerShape->tilesPoss) {
+                bool isNotExists = true;
+
+                for (auto y : yPoss) {
+                    if (tilePos.y == y) isNotExists = false;
+                }
+
+                if (isNotExists) yPoss.push_back(tilePos.y);
+            }
+
+            for (auto y : yPoss) {
+                bool isRowFull = true;
+
+                for (int column = 0; column < DEFAULT_FIELD_WIDTH; ++column) {
+                    if ( ! field[column][y]) {
+                        isRowFull = false;
+                        break;
+                    }
+                }
+
+                if (isRowFull) clearFieldRow(y);
+            }
+
             isStabled = true;
         }
 
@@ -144,5 +169,17 @@ GameState::~GameState() {
     if (field != nullptr) {
         for (int i = 0; i < DEFAULT_FIELD_WIDTH; ++i) delete field[i];
         delete[] field;
+    }
+}
+
+void GameState::clearFieldRow(int row) {
+    for (int iRow = row; iRow > 0; --iRow) {
+        for (int iColumn = 0; iColumn < DEFAULT_FIELD_WIDTH; ++iColumn) {
+            field[iColumn][iRow] = field[iColumn][iRow - 1];
+        }
+    }
+
+    for (int column = 0; column < DEFAULT_FIELD_WIDTH; ++column) {
+        field[column][0] = false;
     }
 }

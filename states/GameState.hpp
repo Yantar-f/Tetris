@@ -24,6 +24,7 @@ public:
 
 private:
     bool trySpawnShape();
+    void clearFieldRow(int row);
 
 private:
     bool** field;

@@ -7,7 +7,7 @@
 #include <memory>
 
 std::unique_ptr<TetrisShape> TetrisShape::createShape(ShapeType shapeType, bool **field, int fieldWidth, int fieldHeight) {
-    switch (shapeType) {/*
+    switch (shapeType) {
         case ShapeType::ZShape: {
             return std::make_unique<ZShape>(field, fieldWidth, fieldHeight);
         }
@@ -18,14 +18,12 @@ std::unique_ptr<TetrisShape> TetrisShape::createShape(ShapeType shapeType, bool 
 
         case ShapeType::IShape: {
             return std::make_unique<IShape>(field, fieldWidth, fieldHeight);
-        }*/
+        }
 
-        default:case ShapeType::ZShape: {
-            return std::make_unique<ZShape>(field, fieldWidth, fieldHeight);
-        }/*
+        default:
         case ShapeType::BShape: {
             return std::make_unique<BShape>(field, fieldWidth, fieldHeight);
-        }*/
+        }
     }
 }
 
