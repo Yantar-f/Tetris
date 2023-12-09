@@ -1,7 +1,3 @@
-//
-// Created by Yantar on 08/12/2023.
-//
-
 #ifndef TETRIS_LSHAPE_HPP
 #define TETRIS_LSHAPE_HPP
 

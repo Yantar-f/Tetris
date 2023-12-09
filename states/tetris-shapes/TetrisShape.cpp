@@ -11,7 +11,7 @@ std::unique_ptr<TetrisShape> TetrisShape::createShape(ShapeType shapeType, bool 
     switch (shapeType) {/*
         case ShapeType::ZShape: {
             return std::make_unique<ZShape>(field, fieldWidth, fieldHeight);
-        }
+        }*/
 
         case ShapeType::LShape: {
             return std::make_unique<LShape>(field, fieldWidth, fieldHeight);
@@ -19,14 +19,12 @@ std::unique_ptr<TetrisShape> TetrisShape::createShape(ShapeType shapeType, bool 
 
         case ShapeType::IShape: {
             return std::make_unique<IShape>(field, fieldWidth, fieldHeight);
-        }*/
+        }
 
-        default:case ShapeType::IShape: {
-            return std::make_unique<IShape>(field, fieldWidth, fieldHeight);
-        }/*
+        default:
         case ShapeType::BShape: {
             return std::make_unique<BShape>(field, fieldWidth, fieldHeight);
-        }*/
+        }
     }
 }
 
