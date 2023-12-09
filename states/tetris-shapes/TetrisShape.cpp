@@ -3,7 +3,6 @@
 #include "LShape.hpp"
 #include "IShape.hpp"
 #include "BShape.hpp"
-#include "../../log/Logger.hpp"
 
 #include <memory>
 
@@ -11,7 +10,7 @@ std::unique_ptr<TetrisShape> TetrisShape::createShape(ShapeType shapeType, bool 
     switch (shapeType) {/*
         case ShapeType::ZShape: {
             return std::make_unique<ZShape>(field, fieldWidth, fieldHeight);
-        }*/
+        }
 
         case ShapeType::LShape: {
             return std::make_unique<LShape>(field, fieldWidth, fieldHeight);
@@ -19,12 +18,14 @@ std::unique_ptr<TetrisShape> TetrisShape::createShape(ShapeType shapeType, bool 
 
         case ShapeType::IShape: {
             return std::make_unique<IShape>(field, fieldWidth, fieldHeight);
-        }
+        }*/
 
-        default:
+        default:case ShapeType::ZShape: {
+            return std::make_unique<ZShape>(field, fieldWidth, fieldHeight);
+        }/*
         case ShapeType::BShape: {
             return std::make_unique<BShape>(field, fieldWidth, fieldHeight);
-        }
+        }*/
     }
 }
 

@@ -1,13 +1,9 @@
-//
-// Created by Yantar on 08/12/2023.
-//
-
 #ifndef TETRIS_TETRISSHAPE_HPP
 #define TETRIS_TETRISSHAPE_HPP
 
-#include <SFML/System/Vector2.hpp>
 #include "ShapeType.hpp"
 
+#include <SFML/System/Vector2.hpp>
 #include <memory>
 
 class TetrisShape {
@@ -43,7 +39,7 @@ protected:
     bool** field;
     int fieldWidth;
     int fieldHeight;
-    Rotation currentRotationAngle = Rotation::Rot0;
+    Rotation currentRotationAngle { Rotation::Rot0 };
 };
 
 
