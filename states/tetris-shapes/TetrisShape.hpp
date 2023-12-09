@@ -39,7 +39,7 @@ private:
 public:
     sf::Vector2i tilesPoss[4];
 
-private:
+protected:
     bool** field;
     int fieldWidth;
     int fieldHeight;

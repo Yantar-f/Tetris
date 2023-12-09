@@ -21,10 +21,12 @@ std::unique_ptr<TetrisShape> TetrisShape::createShape(ShapeType shapeType, bool 
             return std::make_unique<IShape>(field, fieldWidth, fieldHeight);
         }*/
 
-        default:
+        default:case ShapeType::IShape: {
+            return std::make_unique<IShape>(field, fieldWidth, fieldHeight);
+        }/*
         case ShapeType::BShape: {
             return std::make_unique<BShape>(field, fieldWidth, fieldHeight);
-        }
+        }*/
     }
 }
 
@@ -43,17 +45,11 @@ void TetrisShape::moveRight() {
 
 bool TetrisShape::moveDown() {
     for (auto tilePos : tilesPoss) {
-        LOG_INFO(std::string("Tile: [").append(std::to_string(tilePos.x)).append("][").append(std::to_string(tilePos.y).append("]")));
-    }
-
-    for (auto tilePos : tilesPoss) {
         sf::Vector2i comparablePos {tilePos.x, tilePos.y + 1};
 
         if (comparablePos.y == fieldHeight) return false;
 
         if (field[comparablePos.x][comparablePos.y]) {
-            LOG_INFO(std::string("comp:").append(std::to_string(comparablePos.x)).append(",").append(std::to_string(comparablePos.y)));
-
             bool isNotSelfTile = true;
 
             for (auto selfTilePos : tilesPoss) {
